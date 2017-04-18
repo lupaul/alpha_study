@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414043718) do
+ActiveRecord::Schema.define(version: 20170418082524) do
+
+  create_table "cooperations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "school"
+    t.string   "file_url"
+    t.text     "comment"
+    t.integer  "cooperation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "state"
+  end
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"

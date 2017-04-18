@@ -1,0 +1,43 @@
+<h1>審核表單</h1>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>申請id</th>
+      <th>名稱</th>
+      <th>學校</th>
+      <th>email</th>
+      <th>Comment</th>
+      <th>合作方式</th>
+      <th>是否成為夥伴</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @enrollments.each do |enrollment| %>
+    <tr>
+      <td>
+        <%= enrollment.id %>
+      </td>
+      <td>
+        <%= enrollment.name %>
+      </td>
+      <td>
+        <%= enrollment.school %>
+      </td>
+      <td>
+        <%= enrollment.email %>
+      </td>
+      <td>
+        <%= enrollment.comment %>
+      </td>
+      <td>
+        <%= enrollment.cooperation.name %>
+      </td>
+      <td>
+        <%= link_to("成為夥伴",be_partner_enrollment_path(enrollment),method: :post, class: "btn btn-info") %>
+      </td>
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>

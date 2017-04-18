@@ -1,0 +1,30 @@
+<h2> Admin User導覽</h2>
+<%= link_to("審核申請",enrollments_path,class: "btn btn-primary pull-right") %>
+<br><br>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>學校名稱</th>
+      <th>Email帳號</th>
+      <th>刪除夥伴</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <% if user.school.present? %>
+    <tr>
+      <td>
+          <%= user.school.name %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= link_to("Delete user", delete_crm_user_path(user), method: :delete, data:{confirm: "Are u sure?"}, class: "btn btn-danger") %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+<%= simple_form_for @enrollment do |f| %>
+  <div class="form-group">
+    <%= f.input :name ,label: 'Your username please', input_html:{class: "form-control"} %>
+    <%= f.input :email , placeholder: 'user@domain.com' ,input_html:{class: "form-control"} %>
+    <%= f.input :school ,label: 'School please', input_html:{class: "form-control"} %>
+    <%= f.association :cooperation, label: "合作方式",   as: :radio_buttons %>
+    <%= f.input :comment ,label: 'Commnet plze', input_html:{class: "form-control"} %>
+
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary", data: {disable_with: "Submitting....."} %>
+
+<% end %>

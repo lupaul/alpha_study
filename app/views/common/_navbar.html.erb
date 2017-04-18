@@ -17,8 +17,8 @@
                     <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" >
-                    <li><%= link_to("個人帳號設定", edit_user_registration_path) %></li>
-                    <li><%= link_to("設定學校", new_admin_school_path) %></li>
+                    <li><%= link_to("Admin使用者學校設定", crm_users_path) %></li>
+                    <li><%= link_to("個人設定", edit_user_registration_path) %></li>
                     <li><%= link_to("登出", destroy_user_session_path, method: :delete) %></li>
                   </ul>
                 </li>
