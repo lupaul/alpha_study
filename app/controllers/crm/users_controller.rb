@@ -23,6 +23,17 @@ class Crm::UsersController < ApplicationController
     end
   end
 
+  def delete
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "Success to delete account user #{@user.name}"
+      redirect_to :back
+    else
+      flash[:alert] = "Didn't delete user "
+      redirect_to :back
+    end
+  end
+
   private
 
   def params_school
