@@ -1,0 +1,14 @@
+<div>
+  <h3>學校資訊</h3>
+  <ul>
+    <li>名稱：<%= @school.name %></li>
+    <li>地區：<%= @school.location %></li>
+    <li>地址：<%= @school.address %></li>
+    <li>信箱：<%= @school.email %></li>
+  </ul>
+  <h4>介紹</h4>
+  <p><%= simple_format(@school.description) %></p>
+  <hr>
+  <%= link_to '修改', edit_school_path(@school) %>
+  <%= link_to '返回', schools_path %>
+</div>
