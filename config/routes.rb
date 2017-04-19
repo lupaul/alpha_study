@@ -23,12 +23,18 @@ Rails.application.routes.draw do
   end
 
 
-  scope path:'', module: 'factory', constraints subdomain: 'factory' do
-    root 'factories#index'
-    resources :schools, :licenses, :courses, :activities
+  namespace :factory do
+    constraints subdomain: 'factory' do
+      resources :schools, :licenses, :courses, :activities
+      root 'factories#index'
+    end
   end
+  # scope path:'', module: 'factory', constraints subdomain: "factory" do
+  #   root 'factories#index'
+  #   resources :schools, :licenses, :courses, :activities
+  # end
 
-    
+
 
 
   # scope path:'', module: 'factory', constraints: -> (req) { req.host == 'factory.justudy.tw' } do
