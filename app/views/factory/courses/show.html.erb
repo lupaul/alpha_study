@@ -1,0 +1,13 @@
+<div>
+  <h3>課程資訊</h3>
+  <ul>
+    <li>名稱：<%= @course.title %></li>
+    <li>學校：<%= @course.school.name %></li>
+    <li>證照：<%= @course.license.title %></li>
+  </ul>
+  <h4>介紹</h4>
+  <p><%= simple_format(@course.description) %></p>
+  <hr>
+  <%= link_to '修改', edit_course_path(@course) %>
+  <%= link_to '返回', courses_path %>
+</div>

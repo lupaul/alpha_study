@@ -29,13 +29,13 @@ ActiveRecord::Schema.define(version: 20170419034910) do
     t.datetime "updated_at",     null: false
     t.string   "state"
 
-  create_table "crouses", force: :cascade do |t|
+  create_table "courses", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
     t.integer "school_id"
     t.integer "license_id"
-    t.index ["license_id"], name: "index_crouses_on_license_id"
-    t.index ["school_id"], name: "index_crouses_on_school_id"
+    t.index ["license_id"], name: "index_courses_on_license_id"
+    t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
   create_table "licenses", force: :cascade do |t|
