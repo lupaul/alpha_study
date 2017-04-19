@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   scope path:'', module: 'factory', constraints: -> (req) { req.host == 'factory.localhost' } do
-    resources :schools, :licenses 
+    resources :schools, :licenses, :courses 
   end 
 
   namespace :admin do

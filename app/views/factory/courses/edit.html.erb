@@ -1,0 +1,15 @@
+<%= form_for @course do |f| %>
+  <%= f.label :title, '名稱' %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description, '介紹' %>
+  <%= f.text_area :description %>
+
+  <%= f.label :school_id, '學校' %>
+  <%= f.select :school_id, School.all.collect { |s| [s.name, s.id] } %>
+
+  <%= f.label :license_id, '證照' %>
+  <%= f.select :license_id, License.all.collect { |l| [l.title, l.id] } %>
+
+  <%= f.submit '送出' %>
+<% end %>
