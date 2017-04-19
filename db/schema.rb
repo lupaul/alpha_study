@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418082524) do
+ActiveRecord::Schema.define(version: 20170419034910) do
 
   create_table "cooperations", force: :cascade do |t|
     t.string   "name"
@@ -53,7 +53,11 @@ ActiveRecord::Schema.define(version: 20170418082524) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "role"
+    t.string   "fb_uid"
+    t.string   "fb_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["fb_uid"], name: "index_users_on_fb_uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
