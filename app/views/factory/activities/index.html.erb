@@ -1,0 +1,22 @@
+<h2>活動列表</h2>
+<%= link_to '加入活動', new_activity_path %>
+<table>
+  <th>
+    <td>名稱</td>
+    <td>地區</td>
+    <td>講師</td>
+    <td>主辦單位</td>
+    <td>修改</td>
+    <td>刪除</td>
+  </th>
+  <% @activities.each do |activity| %>
+  <tr>
+    <td><%= link_to activity.subject, activity_path(activity) %></td>
+    <td><%= activity.location %></td>
+    <td><%= activity.presenter_name %></td>
+    <td><%= activity.organizer %></td>
+    <td><%= link_to '修改', edit_activity_path(activity) %></td>
+    <td><%= link_to '刪除', activity_path(activity), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>

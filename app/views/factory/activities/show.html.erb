@@ -1,0 +1,15 @@
+<div>
+  <h3>活動資訊</h3>
+  <ul>
+    <li>名稱：<%= @activity.subject %></li>
+    <li>地區：<%= @activity.location %></li>
+    <li>講師：<%= @activity.presenter_name %></li>
+    <li>講師介紹：<p><%= simple_format(@activity.presenter_info) %></p></li>
+    <li>主辦單位：<%= @activity.organizer %></li>
+  </ul>
+  <h4>介紹</h4>
+  <p><%= simple_format(@activity.description) %></p>
+  <hr>
+  <%= link_to '修改', edit_activity_path(@activity) %>
+  <%= link_to '返回', activities_path %>
+</div>

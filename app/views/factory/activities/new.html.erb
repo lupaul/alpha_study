@@ -1,0 +1,21 @@
+<%= form_for @activity do |f| %>
+  <%= f.label :subject, '名稱' %>
+  <%= f.text_field :subject %>
+
+  <%= f.label :description, '介紹' %>
+  <%= f.text_area :description %>
+
+  <%= f.label :location, '地區' %>
+  <%= f.text_field :location %>
+
+  <%= f.label :presenter_name, '講師' %>
+  <%= f.text_field :presenter_name %>
+
+  <%= f.label :presenter_info, '講師介紹' %>
+  <%= f.text_area :presenter_info %>
+
+  <%= f.label :organizer, '主辦單位' %>
+  <%= f.text_field :organizer %>
+
+  <%= f.submit '送出' %>
+<% end %>
