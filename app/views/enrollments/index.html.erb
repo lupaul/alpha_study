@@ -34,7 +34,11 @@
         <%= enrollment.cooperation.name %>
       </td>
       <td>
-        <%= link_to("成為夥伴",be_partner_enrollment_path(enrollment),method: :post, class: "btn btn-info") %>
+        <% if !enrollment.is_partner? %>
+            <%= link_to("成為夥伴",be_partner_enrollment_path(enrollment),method: :post, class: "btn btn-info") %>
+        <% else %>
+            已成為夥伴！！！
+        <% end %>
       </td>
     </tr>
 
