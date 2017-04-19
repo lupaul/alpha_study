@@ -1,3 +1,3 @@
-class Licenses < ApplicationRecord
+class License < ApplicationRecord
   has_many :courses
 end
