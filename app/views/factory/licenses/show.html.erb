@@ -1,0 +1,12 @@
+<div>
+  <h3>證照資訊</h3>
+  <ul>
+    <li>名稱：<%= @license.title %></li>
+    <li>類別：<%= @license.category %></li>
+  </ul>
+  <h4>介紹</h4>
+  <p><%= simple_format(@license.description) %></p>
+  <hr>
+  <%= link_to '修改', edit_license_path(@license) %>
+  <%= link_to '返回', licenses_path %>
+</div>

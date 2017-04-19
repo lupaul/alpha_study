@@ -1,0 +1,2 @@
+module Factory::SchoolsHelper
+end

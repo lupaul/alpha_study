@@ -1,0 +1,88 @@
+<h1>這是一個讓大家上傳假資料的地方</h1>
+<h2>學校列表</h2>
+<%= link_to '加入學校', new_school_path %>
+<table>
+  <th>
+    <td>名稱</td>
+    <td>地區</td>
+    <td>email</td>
+    <td>修改</td>
+    <td>刪除</td>
+  </th>
+  <% @schools.each do |school| %>
+  <tr>
+    <td><%= link_to school.name, school_path(school) %></td>
+    <td><%= school.location %></td>
+    <td><%= school.email %></td>
+    <td><%= link_to '修改', edit_school_path(school) %></td>
+    <td><%= link_to '刪除', school_path(school), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<div><%= link_to '查看更多', schools_path %></div>
+<hr>
+<h2>證照列表</h2>
+<%= link_to '加入證照', new_license_path %>
+<table>
+  <th>
+    <td>名稱</td>
+    <td>類別</td>
+    <td>修改</td>
+    <td>刪除</td>
+  </th>
+  <% @licenses.each do |license| %>
+  <tr>
+    <td><%= link_to license.title, license_path(license) %></td>
+    <td><%= license.category %></td>
+    <td><%= link_to '修改', edit_license_path(license) %></td>
+    <td><%= link_to '刪除', license_path(license), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<div><%= link_to '查看更多', licenses_path %></div>
+<hr>
+<h2>課程列表</h2>
+<%= link_to '加入課程', new_course_path %>
+<table>
+  <th>
+    <td>名稱</td>
+    <td>學校</td>
+    <td>證照</td>
+    <td>修改</td>
+    <td>刪除</td>
+  </th>
+  <% @courses.each do |course| %>
+  <tr>
+    <td><%= link_to course.title, course_path(course) %></td>
+    <td><%= course.school.name %></td>
+    <td><%= course.license.title %></td>
+    <td><%= link_to '修改', edit_course_path(course) %></td>
+    <td><%= link_to '刪除', course_path(course), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<div><%= link_to '查看更多', courses_path %></div>
+<hr>
+<h2>活動列表</h2>
+<%= link_to '加入活動', new_activity_path %>
+<table>
+  <th>
+    <td>名稱</td>
+    <td>地區</td>
+    <td>講師</td>
+    <td>主辦單位</td>
+    <td>修改</td>
+    <td>刪除</td>
+  </th>
+  <% @activities.each do |activity| %>
+  <tr>
+    <td><%= link_to activity.subject, activity_path(activity) %></td>
+    <td><%= activity.location %></td>
+    <td><%= activity.presenter_name %></td>
+    <td><%= activity.organizer %></td>
+    <td><%= link_to '修改', edit_activity_path(activity) %></td>
+    <td><%= link_to '刪除', activity_path(activity), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<div><%= link_to '查看更多', activities_path %></div>

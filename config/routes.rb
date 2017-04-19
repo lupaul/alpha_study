@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'welcome#index'
+
+  scope path:'', module: 'factory', constraints: -> (req) { req.host == 'factory.localhost' } do
+    resources :schools, :licenses, :courses, :activities
+    root 'factories#index'
+  end
 
   namespace :crm do
     resources :users do
@@ -16,9 +19,9 @@ Rails.application.routes.draw do
       post :be_partner
     end
   end
-
+  
   namespace :admin do
     resources :schools
-
   end
+  root 'welcome#index'
 end

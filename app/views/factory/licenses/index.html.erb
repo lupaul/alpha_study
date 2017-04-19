@@ -1,0 +1,18 @@
+<h2>證照列表</h2>
+<%= link_to '加入證照', new_license_path %>
+<table>
+  <th>
+    <td>名稱</td>
+    <td>類別</td>
+    <td>修改</td>
+    <td>刪除</td>
+  </th>
+  <% @licenses.each do |license| %>
+  <tr>
+    <td><%= link_to license.title, license_path(license) %></td>
+    <td><%= license.category %></td>
+    <td><%= link_to '修改', edit_license_path(license) %></td>
+    <td><%= link_to '刪除', license_path(license), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
