@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   scope path:'', module: 'factory', constraints: -> (req) { req.host == 'factory.localhost' } do
-    resources :schools, :licenses, :courses
+    resources :schools, :licenses, :courses, :activities
   end
 
   namespace :admin do
