@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     root 'factories#index'
   end
 
+  scope path:'', module: 'api/v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.localhost' } do
+    resources :schools, :licenses, :courses, :activities, except: [:new, :edit]
+  end
+
   namespace :crm do
     resources :users do
       member do
