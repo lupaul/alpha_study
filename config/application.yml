@@ -1,0 +1,34 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+
+facebook_app_id: "115167559037611"
+facebook_secret: "42eb467ace7041e8f31e729f1965957f"
+
+
+# 放預設值(測試站)的 token
+
+# pay2go_merchant_id: "197----"
+# pay2go_hash_key: "siQtMNJ3----AdkTOoxr----GrKBXnaq"
+# pay2go_hash_iv: "G0Ut----WaiwnCqc"
+# pay2go_service_url: "https://capi.pay2go.com/MPG/mpg_gateway"
+
+# 放正式站的 token
+
+# 若尚未有正式站的 token 可以不用輸入
+
+# heroku 那裡仍是在做金流功能測試
+production:
+  pay2go_merchant_id: "xxx"
+  pay2go_hash_key: "xxx"
+  pay2go_hash_iv: "xxx"
+  pay2go_service_url: "xxx"
