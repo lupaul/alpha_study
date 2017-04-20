@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'welcome#index'
+
 
   namespace :admin do
     resources :schools
@@ -42,5 +42,5 @@ Rails.application.routes.draw do
     resources :schools, :licenses, :courses, :activities
     root 'factories#index'
   end
-
+  root 'welcome#index'
 end
