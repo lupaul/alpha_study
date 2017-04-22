@@ -1,0 +1,15 @@
+<div class="container text-center">
+  <h3>達人資訊</h3>
+  <ul class="list-group center-block" style="width: 60%">
+    <li class="list-group-item">名字：<%= @expert.name %></li>
+    <li class="list-group-item">主題：<%= @expert.subject %></li>
+    <li class="list-group-item">影片網址：<%= @expert.video_url %></li>
+  </ul>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">分享文章</h4>
+    <div class="panel-body"><%= simple_format(@expert.article) %></div>
+  </div>
+  <hr>
+  <%= link_to '修改', edit_expert_path(@expert), class: "btn btn-link btn-lg" %>
+  <%= link_to '返回', experts_path, class: "btn btn-link btn-lg" %>
+</div>

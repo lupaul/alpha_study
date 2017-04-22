@@ -102,3 +102,27 @@
   </table>
   <div><%= link_to '查看更多', activities_path %></div>
 </div>
+<hr>
+<div class="container text-center">
+  <h2>達人列表</h2>
+  <%= link_to '加入達人', new_expert_path, class: "btn btn-info" %>
+  <table class="table table-hover">
+    <thead>
+      <th>名字</th>
+      <th>主題</th>
+      <th>修改</th>
+      <th>刪除</th>
+    </thead>
+    <tbody>
+      <% @experts.each do |expert| %>
+      <tr>
+        <td><%= link_to expert.name, expert_path(expert) %></td>
+        <td><%= expert.subject %></td>
+        <td><%= link_to '修改', edit_expert_path(expert), class: "btn btn-warning btn-md" %></td>
+        <td><%= link_to '刪除', expert_path(expert), method: :delete, class: "btn btn-danger btn-md" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div><%= link_to '查看更多', experts_path %></div>
+</div>
