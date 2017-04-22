@@ -1,0 +1,1 @@
+@json.result @course, :id, :title, :description, :liked
