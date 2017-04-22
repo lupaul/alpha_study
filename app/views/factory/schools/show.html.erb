@@ -1,14 +1,16 @@
-<div>
+<div class="container text-center">
   <h3>學校資訊</h3>
-  <ul>
-    <li>名稱：<%= @school.name %></li>
-    <li>地區：<%= @school.location %></li>
-    <li>地址：<%= @school.address %></li>
-    <li>信箱：<%= @school.email %></li>
+  <ul class="list-group center-block" style="width: 60%">
+    <li class="list-group-item">名稱：<%= @school.name %></li>
+    <li class="list-group-item">地區：<%= @school.location %></li>
+    <li class="list-group-item">地址：<%= @school.address %></li>
+    <li class="list-group-item">信箱：<%= @school.email %></li>
   </ul>
-  <h4>介紹</h4>
-  <p><%= simple_format(@school.description) %></p>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">介紹</h4>
+    <div class="panel-body"><%= simple_format(@school.description) %></div>
+  </div>
   <hr>
-  <%= link_to '修改', edit_school_path(@school) %>
-  <%= link_to '返回', schools_path %>
+  <%= link_to '修改', edit_school_path(@school), class: "btn btn-link btn-lg" %>
+  <%= link_to '返回', schools_path, class: "btn btn-link btn-lg" %>
 </div>
