@@ -1,13 +1,15 @@
-<div>
+<div class="container text-center">
   <h3>課程資訊</h3>
-  <ul>
-    <li>名稱：<%= @course.title %></li>
-    <li>學校：<%= @course.school.name %></li>
-    <li>證照：<%= @course.license.title %></li>
+  <ul class="list-group center-block" style="width: 60%">
+    <li class="list-group-item">名稱：<%= @course.title %></li>
+    <li class="list-group-item">學校：<%= @course.school.name %></li>
+    <li class="list-group-item">證照：<%= @course.license.title %></li>
   </ul>
-  <h4>介紹</h4>
-  <p><%= simple_format(@course.description) %></p>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">介紹</h4>
+    <div class="panel-body"><%= simple_format(@course.description) %></div>
+  </div>
   <hr>
-  <%= link_to '修改', edit_course_path(@course) %>
-  <%= link_to '返回', courses_path %>
+  <%= link_to '修改', edit_course_path(@course), class: "btn btn-link btn-lg" %>
+  <%= link_to '返回', courses_path, class: "btn btn-link btn-lg" %>
 </div>
