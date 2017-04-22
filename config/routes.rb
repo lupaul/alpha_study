@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   scope path:'', module: 'api/v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.localhost' } do
-    resources :schools, :licenses, :courses, :activities, except: [:new, :edit]
+    resources :schools, :licenses, :courses, :activities, :experts, except: [:new, :edit]
   end
 
   namespace :admin do
