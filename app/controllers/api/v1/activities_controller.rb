@@ -1,5 +1,6 @@
 class Api::V1::ActivitiesController < ApiController
   before_action :activity_find, except: [:index, :create]
+  
   def index
     @activities = Activity.all
   end
