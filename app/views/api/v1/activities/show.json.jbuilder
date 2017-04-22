@@ -1,2 +1,2 @@
-json.result @activity, :id, :subject, :description, 
-                       :presenter_name, :presenter_info, :organizer
+json.result @activity, :id, :subject, :description, :presenter_name, 
+                       :presenter_info, :organizer, :liked
