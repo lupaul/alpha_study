@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419051832) do
+ActiveRecord::Schema.define(version: 20170422055318) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
@@ -20,11 +20,17 @@ ActiveRecord::Schema.define(version: 20170419051832) do
     t.string   "presenter_name"
     t.text     "presenter_info"
     t.string   "organizer"
-    t.integer  "liked"
+    t.integer  "liked",          default: 0
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
+  create_table "cooperations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "courses", force: :cascade do |t|
@@ -32,28 +38,53 @@ ActiveRecord::Schema.define(version: 20170419051832) do
     t.text    "description"
     t.integer "school_id"
     t.integer "license_id"
+    t.integer "liked",       default: 0
     t.index ["license_id"], name: "index_courses_on_license_id"
     t.index ["school_id"], name: "index_courses_on_school_id"
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "school"
+    t.string   "file_url"
+    t.text     "comment"
+    t.integer  "cooperation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "state"
+  end
+
+  create_table "experts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.string   "video_url"
+    t.text     "article"
+    t.integer  "liked",      default: 0
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_experts_on_user_id"
   end
 
   create_table "licenses", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
     t.string  "category"
-    t.integer "liked"
+    t.integer "liked",       default: 0
   end
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "location"
     t.string   "address"
     t.string   "email"
-    t.integer  "liked"
-    t.integer  "followed"
+    t.integer  "liked",       default: 0
+    t.integer  "followed",    default: 0
     t.index ["user_id"], name: "index_schools_on_user_id"
   end
 
@@ -71,7 +102,11 @@ ActiveRecord::Schema.define(version: 20170419051832) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "role"
+    t.string   "fb_uid"
+    t.string   "fb_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["fb_uid"], name: "index_users_on_fb_uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
