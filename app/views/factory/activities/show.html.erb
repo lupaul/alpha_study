@@ -1,15 +1,17 @@
-<div>
+<div class="container text-center">
   <h3>活動資訊</h3>
-  <ul>
-    <li>名稱：<%= @activity.subject %></li>
-    <li>地區：<%= @activity.location %></li>
-    <li>講師：<%= @activity.presenter_name %></li>
-    <li>講師介紹：<p><%= simple_format(@activity.presenter_info) %></p></li>
-    <li>主辦單位：<%= @activity.organizer %></li>
+  <ul class="list-group center-block" style="width: 60%">
+    <li class="list-group-item">名稱：<%= @activity.subject %></li>
+    <li class="list-group-item">地區：<%= @activity.location %></li>
+    <li class="list-group-item">講師：<%= @activity.presenter_name %></li>
+    <li class="list-group-item">講師介紹：<p><%= simple_format(@activity.presenter_info) %></p></li>
+    <li class="list-group-item">主辦單位：<%= @activity.organizer %></li>
   </ul>
-  <h4>介紹</h4>
-  <p><%= simple_format(@activity.description) %></p>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">介紹</h4>
+    <div class="panel-body"><%= simple_format(@activity.description) %></div>
+  </div>
   <hr>
-  <%= link_to '修改', edit_activity_path(@activity) %>
-  <%= link_to '返回', activities_path %>
+  <%= link_to '修改', edit_activity_path(@activity), class: "btn btn-link btn-lg" %>
+  <%= link_to '返回', activities_path, class: "btn btn-link btn-lg" %>
 </div>

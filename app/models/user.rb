@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
   has_one :school, dependent: :destroy
+  has_one :expert
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
@@ -36,5 +37,4 @@ class User < ApplicationRecord
     user.save!
     return user
   end
-
 end

@@ -1,23 +1,27 @@
-<h2>活動列表</h2>
-<%= link_to '加入活動', new_activity_path %>
-<table>
-  <th>
-    <td>名稱</td>
-    <td>地區</td>
-    <td>講師</td>
-    <td>主辦單位</td>
-    <td>修改</td>
-    <td>刪除</td>
-  </th>
-  <% @activities.each do |activity| %>
-  <tr>
-    <td><%= link_to activity.subject, activity_path(activity) %></td>
-    <td><%= activity.location %></td>
-    <td><%= activity.presenter_name %></td>
-    <td><%= activity.organizer %></td>
-    <td><%= link_to '修改', edit_activity_path(activity) %></td>
-    <td><%= link_to '刪除', activity_path(activity), method: :delete %></td>
-  </tr>
-  <% end %>
-</table>
-<%= link_to '回首頁', root_path %>
+ <div class="container"> 
+  <h2 class="text-center">活動列表</h2>
+  <%= link_to '回首頁', root_path, class: "btn btn-success" %>
+  <%= link_to '加入活動', new_activity_path, class: "btn btn-info" %>
+  <table class="table table-hover">
+    <thead>
+      <th>名稱</th>
+      <th>地區</th>
+      <th>講師</th>
+      <th>主辦單位</th>
+      <th>修改</th>
+      <th>刪除</th>
+    </thead>
+    <tbody>
+      <% @activities.each do |activity| %>
+      <tr>
+        <td><%= link_to activity.subject, activity_path(activity) %></td>
+        <td><%= activity.location %></td>
+        <td><%= activity.presenter_name %></td>
+        <td><%= activity.organizer %></td>
+        <td><%= link_to '修改', edit_activity_path(activity), class: "btn btn-warning btn-md" %></td>
+        <td><%= link_to '刪除', activity_path(activity), method: :delete, class: "btn btn-danger btn-md" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
