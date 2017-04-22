@@ -1,0 +1,12 @@
+<%= simple_form_for @photo, url: admin_rootusers_path  do |f| %>
+  <div class="form-group">
+    <%= f.input :image, label: " 上傳圖片" ,as: :file %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary", data: {disable_with: "Submitting....."} %>
+<% end %>
+
+<% @photos.each do |photo| %>
+<div class="photo">
+    <%= image_tag(photo.image.medium.url) %>
+</div>
+<% end %>
