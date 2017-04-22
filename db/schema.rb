@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20170422140831) do
     t.string   "state"
   end
 
-
   create_table "experts", force: :cascade do |t|
     t.string   "name"
     t.string   "subject"
