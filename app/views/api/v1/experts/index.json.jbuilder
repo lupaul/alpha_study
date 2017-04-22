@@ -1,0 +1,1 @@
+json.result @experts, :id, :name, :subject, :video_url, :article, :liked
