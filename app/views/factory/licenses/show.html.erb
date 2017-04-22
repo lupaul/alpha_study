@@ -1,12 +1,14 @@
-<div>
+<div class="container text-center">
   <h3>證照資訊</h3>
-  <ul>
-    <li>名稱：<%= @license.title %></li>
-    <li>類別：<%= @license.category %></li>
+  <ul class="list-group center-block" style="width: 60%">
+    <li class="list-group-item">名稱：<%= @license.title %></li>
+    <li class="list-group-item">類別：<%= @license.category %></li>
   </ul>
-  <h4>介紹</h4>
-  <p><%= simple_format(@license.description) %></p>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">介紹</h4>
+    <div class="panel-body"><%= simple_format(@license.description) %></div>
+  </div>
   <hr>
-  <%= link_to '修改', edit_license_path(@license) %>
-  <%= link_to '返回', licenses_path %>
+  <%= link_to '修改', edit_license_path(@license), class: "btn btn-link btn-lg" %>
+  <%= link_to '返回', licenses_path, class: "btn btn-link btn-lg" %>
 </div>
