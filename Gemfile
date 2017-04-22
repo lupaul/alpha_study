@@ -39,6 +39,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'figaro'
 gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :production do
   gem 'mysql2'

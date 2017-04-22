@@ -9,25 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
- 
-ActiveRecord::Schema.define(version: 20170419034910) do
 
-  create_table "cooperations", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "enrollments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "school"
-    t.string   "file_url"
-    t.text     "comment"
-    t.integer  "cooperation_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "state"
+ActiveRecord::Schema.define(version: 20170422140831) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
@@ -44,6 +27,12 @@ ActiveRecord::Schema.define(version: 20170419034910) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+  create_table "cooperations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
@@ -53,11 +42,30 @@ ActiveRecord::Schema.define(version: 20170419034910) do
     t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
+  create_table "enrollments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "school"
+    t.string   "file_url"
+    t.text     "comment"
+    t.integer  "cooperation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "state"
+  end
+
   create_table "licenses", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
     t.string  "category"
     t.integer "liked"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "schools", force: :cascade do |t|
