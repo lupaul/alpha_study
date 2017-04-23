@@ -1,0 +1,31 @@
+<%= link_to("建立活動", new_admin_school_activity_path, class: "btn btn-primary pull-right") %>
+<h2>活動清單 Event List</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>活動名稱 Event Name</th>
+      <th>活動時間 Event Time</th>
+      <th>參加人數</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @activities.each do |activity| %>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+        <%= activity.name %>
+      </td>
+      <td>
+        <%= activity.datetime%>
+      </td>
+      <td>
+        <%= activity.count %>
+      </td>
+      <td>
+        <%= link_to("修改活動", edit_admin_school_activity_path(current_user, activity)) %>
+      </td>
+  </tbody>
+</table>
