@@ -1,1 +1,1 @@
-json.result @school, :id, :name, :description, :location, :address, :email, :liked, :followed
+json.(@school, :id, :name, :description, :location, :address, :email, :liked, :followed)

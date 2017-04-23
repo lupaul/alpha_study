@@ -1,1 +1,1 @@
-@json.result @course, :id, :title, :description, :liked
+@json.(@course, :id, :title, :description, :liked)

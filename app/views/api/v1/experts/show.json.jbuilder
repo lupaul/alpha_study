@@ -1,1 +1,1 @@
-json.result @expert, :id, :name, :subject, :video_url, :article, :liked
+json.(@expert, :id, :name, :subject, :video_url, :article, :liked)
