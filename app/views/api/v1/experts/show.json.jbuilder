@@ -1,0 +1,1 @@
+json.(@expert, :id, :name, :subject, :video_url, :article, :liked)
