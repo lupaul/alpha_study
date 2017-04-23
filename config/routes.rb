@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :schools
+    resources :schools do
+      get :account_activity, on: :collection
+      resources :reservations, :activities
+    end
     resources :rootusers
   end
 
