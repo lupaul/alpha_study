@@ -1,0 +1,463 @@
+#%RAML 1.0
+title: Jutsudy API
+version: v1
+baseUri: http://api.jutsudy.tw/{version}
+mediaType:  application/json
+types: 
+  Activity:
+    type: object
+    properties: 
+      subject: string
+      description: string
+      datetime: datetime-only
+      location: string
+      presenter_name: string
+      presenter_info: string
+      organizer: string
+      liked: integer
+  ActivityList:
+    type: object
+    properties: 
+      result: Activity[]
+  Expert:
+    type: object
+    properties: 
+      name: string
+      subject: string
+      video_url: string
+      article: string
+      liked: integer
+  ExpertList:
+    type: object
+    properties: 
+      result: Expert[]
+  School:
+    type: object
+    properties: 
+      name: string
+      description: string
+      location: string
+      address: string
+      email: string
+      liked: integer
+      followed: integer
+  SchoolList:
+    type: object
+    properties: 
+      result: School[]
+  Course:
+    type: object
+    properties: 
+      title: string
+      description: string
+      liked: integer
+  CourseList:
+    type: object
+    properties: 
+      result: Course[]
+/activities:
+  get:
+    displayName: Activities
+    description: get all activities
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: ActivityList
+            example: 
+              result:
+                -
+                  subject: 多益考照經驗分享
+                  description: 多多益善
+                  datetime: 2017-05-10T18:00:00
+                  location: alphacamp
+                  presenter_name: Sean
+                  presenter_info: study abroad guru
+                  organizer: Sean Company
+                  liked: 100
+                -
+                  subject: 多益考照經驗分享
+                  description: 多多益善
+                  datetime: 2017-05-10T18:00:00
+                  location: alphacamp
+                  presenter_name: Sean
+                  presenter_info: study abroad guru
+                  organizer: Sean Company
+                  liked: 100
+  post:
+    description: create an activity
+    body:
+      application/json:
+        type: Activity
+    responses: 
+      200:
+        body:
+          application/json:
+            example:
+              message: ok
+      400:
+        body:
+          application/json:
+            example:
+              message: fail
+  /{id}:
+    get:
+      description: get one activity information
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: Activity
+              example:
+                value:
+                  subject: 多益考照經驗分享
+                  description: 多多益善
+                  datetime: 2017-05-10T18:00:00
+                  location: alphacamp
+                  presenter_name: Sean
+                  presenter_info: study abroad guru
+                  organizer: Sean Company
+                  liked: 100
+    patch:
+      description: update an activity
+      body:
+        application/json:
+          type: Activity
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    put:
+      description: update an activity
+      body:
+        application/json:
+          type: Activity
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    delete:
+      description: delete an activity
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+/experts:
+  get:
+    displayName: Experts
+    description: get all experts data
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: ExpertList
+            example: 
+              result:
+                -
+                  name: Sean
+                  subject: 菲律賓的神奇冒險
+                  video_url: https://www.youtube.com/watch?v=6RN2t-Wy0lY
+                  article: 待補充
+                  liked: 500
+                -
+                  name: Sean
+                  subject: 菲律賓的神奇冒險
+                  video_url: https://www.youtube.com/watch?v=6RN2t-Wy0lY
+                  article: 待補充
+                  liked: 200
+  post:
+    description: create an expert
+    body:
+      application/json:
+        type: Expert
+    responses: 
+      200:
+        body:
+          application/json:
+            example:
+              message: ok
+      400:
+        body:
+          application/json:
+            example:
+              message: fail
+  /{id}:
+    get:
+      description: get one expert information
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: Expert
+              example:
+                value:
+                  name: Sean
+                  subject: 菲律賓的神奇冒險
+                  video_url: https://www.youtube.com/watch?v=6RN2t-Wy0lY
+                  article: 待補充
+                  liked: 100
+    patch:
+      description: update an expert
+      body:
+        application/json:
+          type: Expert
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    put:
+      description: update an expert
+      body:
+        application/json:
+          type: Expert
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    delete:
+      description: delete an expert
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+/schools:
+  get:
+    displayName: Schools
+    description: get all schools
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: SchoolList
+            example: 
+              result:
+                -
+                  name: QQ English
+                  description: QQ位在宿霧IT PARK 經濟開發區、附近聚集了高級商業辦公大樓。交通便利、附近有購物中心、按摩店、小吃店、生活非常便利。提供開放式英語教學，全面加強聽跟說的基礎能力。
+                  location: 宿霧正市中心
+                  address: 7/F TGU Tower Asia Town I.T. Park, Salinas Drive Apas, Cebu City
+                  email: sean@justudy.tw
+                  liked: 100
+                  followed: 20
+                -
+                  name: QQ English
+                  description: QQ位在宿霧IT PARK 經濟開發區、附近聚集了高級商業辦公大樓。交通便利、附近有購物中心、按摩店、小吃店、生活非常便利。提供開放式英語教學，全面加強聽跟說的基礎能力。
+                  location: 宿霧正市中心
+                  address: 7/F TGU Tower Asia Town I.T. Park, Salinas Drive Apas, Cebu City
+                  email: sean@justudy.tw
+                  liked: 100
+                  followed: 20
+  post:
+    description: create an school
+    body:
+      application/json:
+        type: School
+    responses: 
+      200:
+        body:
+          application/json:
+            example:
+              message: ok
+      400:
+        body:
+          application/json:
+            example:
+              message: fail
+  /{id}:
+    get:
+      description: get one activity information
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: School
+              example:
+                value:
+                  name: QQ English
+                  description: QQ位在宿霧IT PARK 經濟開發區、附近聚集了高級商業辦公大樓。交通便利、附近有購物中心、按摩店、小吃店、生活非常便利。提供開放式英語教學，全面加強聽跟說的基礎能力。
+                  location: 宿霧正市中心
+                  address: 7/F TGU Tower Asia Town I.T. Park, Salinas Drive Apas, Cebu City
+                  email: sean@justudy.tw
+                  liked: 100
+                  followed: 20
+    patch:
+      description: update an school
+      body:
+        application/json:
+          type: School
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    put:
+      description: update an school
+      body:
+        application/json:
+          type: School
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    delete:
+      description: delete an school
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+/courses:
+  get:
+    displayName: Courses
+    description: get all courses
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: CourseList
+            example: 
+              result:
+                -
+                  title: 英文好棒棒
+                  description: ＡＢＣＤ
+                  liked: 100
+                -
+                  title: 英文好棒棒
+                  description: ＡＢＣＤ
+                  liked: 100
+  post:
+    description: create a course
+    body:
+      application/json:
+        type: Course
+    responses: 
+      200:
+        body:
+          application/json:
+            example:
+              message: ok
+      400:
+        body:
+          application/json:
+            example:
+              message: fail
+  /{id}:
+    get:
+      description: get one course information
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: Course
+              example:
+                value:
+                  title: 英文好棒棒
+                  description: ＡＢＣＤ
+                  liked: 100
+    patch:
+      description: update a course
+      body:
+        application/json:
+          type: Course
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    put:
+      description: update a course
+      body:
+        application/json:
+          type: Course
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    delete:
+      description: delete a course
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+                

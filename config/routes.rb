@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     root 'factories#index'
   end
 
-  scope path:'', module: 'api/v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.localhost' } do
+  scope path:'v1', module: 'api/v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
     resources :schools, :licenses, :courses, :activities, :experts, except: [:new, :edit]
+    get 'spec', to: redirect('api_spec.html')
   end
 
   namespace :admin do
