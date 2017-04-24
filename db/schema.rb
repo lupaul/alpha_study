@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "count",          default: 0
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
@@ -73,13 +72,6 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.text    "description"
     t.string  "category"
     t.integer "liked",       default: 0
-  end
-
-  create_table "participations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "activity_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "photos", force: :cascade do |t|
