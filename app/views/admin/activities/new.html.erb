@@ -1,0 +1,5 @@
+<div class="container-fluid">
+ <%= simple_form_for @activity, url: admin_school_activities_path do |f| %>
+     <%= render partial: "event", locals: { f:   f } %>
+     <%= f.submit "Save 存擋", class: "btn btn-primary", data: { disable_with: "送出......"} %>
+ <% end %>

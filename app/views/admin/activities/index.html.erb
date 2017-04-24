@@ -1,0 +1,42 @@
+<%= link_to("建立活動", new_admin_school_activity_path, class: "btn btn-primary pull-right") %>
+<h2>活動清單 Event List</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>活動名稱 Event Name</th>
+      <th>活動時間 Event Time</th>
+      <th>活動地點 Event Location</th>
+      <th>參加人數</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @activities.each do |activity| %>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+        <%= activity.subject %>
+      </td>
+      <td>
+        <%= activity.datetime%>
+      </td>
+      <td>
+        <%= activity.location %>
+      </td>
+      <td>
+        <%= activity.count %>
+      </td>
+      <td>
+        <%= link_to("修改活動", edit_admin_school_activity_path(current_user, activity), class: "btn btn-info") %>
+      </td>
+      <td>
+        <%= link_to("刪除活動", admin_school_activity_path(current_user, activity), method: :delete, data: {confirm: " Are you sure?"}, class: "btn btn-warning") %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

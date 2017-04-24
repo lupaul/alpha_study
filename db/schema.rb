@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423132732) do
+
+ActiveRecord::Schema.define(version: 20170424074007) do
+
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
     t.text     "description"
-    t.datetime "datatime"
+    t.datetime "datetime"
     t.string   "location"
     t.string   "presenter_name"
     t.text     "presenter_info"
@@ -24,6 +26,10 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "count",          default: 0
+    t.string   "image"
+    t.boolean  "is_online"
+    t.string   "software"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
@@ -72,6 +78,13 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.text    "description"
     t.string  "category"
     t.integer "liked",       default: 0
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "photos", force: :cascade do |t|
