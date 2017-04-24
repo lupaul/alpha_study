@@ -20,6 +20,33 @@ class Admin::ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @activity = current_user.activities.find(params[:id])
+
+  end
+
+  def update
+    @activity = current_user.activities.find(params[:id])
+    if @activity.update(activity_params)
+      flash[:notice] = "Successfully updating..."
+      redirect_to admin_school_activities_path
+    else
+      flash[:alert] = "Failed created..."
+      render :edit
+    end
+  end
+
+  def destroy
+    @activity = current_user.activities.find(params[:id])
+    if @activity.destroy
+      flash[:notice] = "Successfully delete!!"
+      redirect_back fallback_location: index
+    else
+      flash[:alert] = "It's Faild!!!"
+      redirect_to :back
+    end
+  end
+
   private
 
   def activity_params
