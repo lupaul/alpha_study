@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :activities
   has_many :participations
   has_many :activityships, through: :participations, source: :activity
+  has_many :reservations
+  
 
   has_many :liked_topics, through: :likes, source: :topic
   def self.from_omniauth(auth)
