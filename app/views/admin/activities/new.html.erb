@@ -1,0 +1,19 @@
+<div class="container-fluid">
+ <%= simple_form_for @activity, url: admin_school_activities_path do |f| %>
+   <div class="form-group">
+     <%= f.input :image, label: " 上傳圖片" ,as: :file %>
+     <%= f.input  :subject, label: "活動主題" ,input_html:{class: "form-control"} %>
+     <%= f.input :datetime, label: "活動時間", input_html: {class: "form-control"} %>
+     <%= f.input :presenter_name, label: "主講者", input_html: { class: "form-control"} %>
+
+      <%=  f.collection_radio_buttons :is_online, [[true, 'Online 線上活動'] ,[false, 'Offline 線下活動']], :first, :last %>
+
+      <%= f.input :software, label: "使用軟體", input_html: { class: "form-control"} %>
+      <%= f.input :location, label: "地點", input_html: {class: "form-control"} %>
+
+     <%= f.input  :description, label: "活動介紹" ,input_html:{class: "form-control"} %>
+     <%= f.input :presenter_info, label: "講師介紹", input_html: { class: "form-control"} %>
+     <%= f.input :organizer, label: "主辦單位", input_html: { class: "form-control"} %>
+
+     <%= f.submit "Save 存擋", class: "btn btn-primary", data: { disable_with: "送出......"} %>
+ <% end %>

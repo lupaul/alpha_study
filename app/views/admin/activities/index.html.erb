@@ -6,7 +6,9 @@
       <th>#</th>
       <th>活動名稱 Event Name</th>
       <th>活動時間 Event Time</th>
+      <th>活動地點 Event Location</th>
       <th>參加人數</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,10 +18,13 @@
 
       </td>
       <td>
-        <%= activity.name %>
+        <%= activity.subject %>
       </td>
       <td>
         <%= activity.datetime%>
+      </td>
+      <td>
+        <%= activity.location %>
       </td>
       <td>
         <%= activity.count %>
