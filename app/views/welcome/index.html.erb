@@ -1,2 +1,110 @@
-<h1>  Welcome to Alpha Study</h1>
-<%= link_to("加入Justudy就醬遊",new_enrollment_path) %>
+<section id="orientation">
+  <div class="title-group">
+    <%= image_tag 'filename' %>
+    <h1>留學說明會</h1>
+    <h3>快速掌握學習情報</h3>
+  </div>
+  <div class="instances">
+    <% @activities.each do |activity|%>
+    <div class="instance-card">
+      <%= image_tag 'filename' %>
+      <div class="row">
+        <div class="col-md-6"><%= activity.subject %></div>
+        <div class="col-md-6"><%= activity.datetime %></div>
+        <div class="col-md-6"><%= activity.location %></div>
+        <div class="col-md-6"><%= activity.organizer %></div>
+        <div class="col-md-6"><%= link_to '喜歡', root_path %></div>
+        <div class="col-md-6"><%= link_to '看更多訊息...', activity_path(activity) %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to 'more+', activities_path %>
+</section>
+<section id="sharing">
+  <div class="row">
+    <div class="title-group col-md-4">
+      <%= image_tag 'filename' %>
+      <h1>達人分享會</h1>
+      <h3>感受學習旅程，有效改善資訊落差</h3>
+    </div>
+    <div class="instances">
+      <% @experts.each do |expert|%>
+    <div class="instance-card">
+      <%= image_tag 'filename' %>
+      <div class="row">
+        <div class="col-md-6"><%= expert.subject %></div>
+        <div class="col-md-6"><%= expert.name %></div>
+        <div class="col-md-6"><%= link_to '喜歡', root_path %></div>
+        <div class="col-md-6"><%= link_to '看更多訊息...', expert_path(expert) %></div>
+      </div>
+    </div>
+    <% end %>
+    </div>
+    <%= link_to 'more+', experts_path %>
+  </div>
+</section>
+<section id="facing">
+  <div class="title-group">
+    <%= image_tag 'filename' %>
+    <h1>學校面對面</h1>
+    <h3>精準掌握學校第一手訊息</h3>
+  </div>
+  <div class="instances">
+    <% @reservations.each do |reservation|%>
+    <div class="instance-card">
+      <%= image_tag 'filename' %>
+      <div class="row">
+        <div class="col-md-6"><%= reservation.subject %></div>
+        <div class="col-md-6"><%= reservation.datetime %></div>
+        <div class="col-md-6"><%= reservation.school.name %></div>
+        <div class="col-md-6"><%= link_to '喜歡', root_path %></div>
+        <div class="col-md-6"><%= link_to '+1 我要預約', reservation_path(reservation) %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to 'more+' %>
+</section>
+<section id="licenses">
+  <h2>術業專攻，我的達人養成計畫</h2>
+  <div class="license-group">
+    <% @licenses.each do |license|%>
+    <div class="license-card">
+      <div class="license-title"><%= license.title %></div>
+      <div class="license-description"><%= license.description %></div>
+      <%= link_to 'more+', license_path(license) %>
+      <%= image_tag 'filename' %>
+    </div>
+    <% end %>
+  </div>
+</section>
+<section id="schools">
+  <h2>Justudy 學校夥伴</h2>
+  <div class="school-group">
+    <% @schools.each do |school| %>
+    <div class="school-card">
+      <%= image_tag 'filename' %>
+      <div class="school-info">
+        <div><%= school.name %></div>
+        <div><%= school.location %></div>
+        <div><%= school.liked %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
+<section id="contact">
+  <div class="newsletter">
+    <div class="span6">
+      掌握掌握海外學習第一手消息 就從<span>訂閱Justudy電子報</span>開始
+    </div>
+    <div class="span6">
+      <label for="email">Email:</label>
+      <input id="email" type="text">
+    </div>
+  </div>
+  <div class="fans-page">
+    Justudy 就醬遊粉絲專頁：
+  </div>
+</section>

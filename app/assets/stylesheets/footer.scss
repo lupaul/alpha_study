@@ -1,0 +1,17 @@
+$branding-color: #5CBEA0;
+$font-color: #5D5D5D;
+
+footer {
+  padding: 20px 30px 20px 30px;
+  background-color: $branding-color;
+  color: $font-color;
+
+  .container {
+    position: relative;
+
+    #right-reserved {
+      position: absolute;
+      bottom: 5px;
+    }
+  }
+}
