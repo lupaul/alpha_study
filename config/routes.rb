@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   scope path:'v1', module: 'api/v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
-    resources :schools, :licenses, :courses, :activities, :experts, except: [:new, :edit]
+    resources :schools, :licenses, :courses, :activities, :experts, :reservations, except: [:new, :edit]
     get 'spec', to: redirect('api_spec.html')
   end
 
