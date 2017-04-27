@@ -5,6 +5,7 @@
     <tr>
       <th>#</th>
       <th>學生名稱 Student Name</th>
+      <th>學生E-mail</th>
       <th>學生希望時間 Available Time</th>
       <th>學生方便日期 Available Date Period</th>
       <th></th>
@@ -16,7 +17,10 @@
     <tr>
       <td></td>
       <td>
-        <%= consultation.name %>
+        <%= consultation.user.name %>
+      </td>
+      <td>
+        <%= consultation.user.email %>
       </td>
       <td>
         <% consultation.datetime.each do |d|  %>

@@ -9,11 +9,10 @@
                              order: [ :year,:month, :day] %>
     <%= f.input :end_date, label: "結束日期", as: :date,
                             order: [:month, :day] %>
-
-    <br>  <br>
-
-
-
   </div>
+
+    <%= f.collection_select(:school_id, School.all, :id, :name) %>
+    <%= f.collection_select(:license_id, License.all, :id, :title) %>
+    <br><br>
     <%= f.button :submit, "預約查詢" ,input_html:{class: "form-control"}%>
 <% end %>

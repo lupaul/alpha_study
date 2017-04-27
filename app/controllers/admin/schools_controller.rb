@@ -10,7 +10,7 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def consultations
-    @consultations = current_user.consultations
+    @consultations = current_user.school.consultations
   end
 
 
