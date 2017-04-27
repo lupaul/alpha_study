@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   scope path:'', module: 'factory', constraints: -> (req) { req.host == 'factory.justudy.tw' } do
-    resources :schools, :licenses, :courses, :activities, :experts
+    resources :schools, :licenses, :courses, :activities, :experts, :reservations
     root 'factories#index'
   end
 
