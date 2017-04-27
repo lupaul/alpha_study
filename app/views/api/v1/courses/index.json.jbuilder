@@ -1,1 +1,1 @@
-json.results @courses, :id, :title, :description, :liked
+json.results @courses, :id, :title, :description, :liked, :card_image, :banner_image

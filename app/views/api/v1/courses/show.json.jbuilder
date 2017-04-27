@@ -1,1 +1,1 @@
-@json.(@course, :id, :title, :description, :liked)
+@json.(@course, :id, :title, :description, :liked, :card_image, :banner_image)
