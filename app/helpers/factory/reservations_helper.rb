@@ -1,0 +1,2 @@
+module Factory::ReservationsHelper
+end

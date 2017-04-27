@@ -1,0 +1,31 @@
+<div class="container">
+  <%= form_for @reservation do |f| %>
+    <div class="form-group">
+      <%= f.label :subject, '主題' %>
+      <%= f.text_field :subject, class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= f.label :is_online, '是否線上' %>
+      <%= f.select :is_online, [['是', true],['否', false]], class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= f.label :location, '地點' %>
+      <%= f.text_area :location, class: "form-control " %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= f.label :datetime, '時間' %>
+      <%= f.text_field :datetime, class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= f.label :card_image, '圖片' %> (350x250)
+      <%= f.file_field :card_image, class: "form-control" %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.submit '送出', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
