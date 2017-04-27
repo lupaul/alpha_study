@@ -33,8 +33,9 @@ class Factory::ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(
-        :subject, :description, :location, 
-        :presenter_name, :presenter_info, :organizer
+        :subject, :description, :location, :datetime,
+        :presenter_name, :presenter_info, :organizer,
+        :card_image, :banner_image
       )
     end
 
