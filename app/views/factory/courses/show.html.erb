@@ -9,6 +9,15 @@
     <h4 class="panel-heading">介紹</h4>
     <div class="panel-body"><%= simple_format(@course.description) %></div>
   </div>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">圖片</h4>
+    <div class="panel-body">
+      <div>卡片圖片：</div> 
+      <%= image_tag @course.card_image %>
+      <div>橫幅圖片：</div> 
+      <%= image_tag @course.banner_image %>
+    </div>
+  </div>
   <hr>
   <%= link_to '修改', edit_course_path(@course), class: "btn btn-link btn-lg" %>
   <%= link_to '返回', courses_path, class: "btn btn-link btn-lg" %>

@@ -32,7 +32,7 @@ class Factory::CoursesController < ApplicationController
   private
 
     def course_params
-      params.require(:course).permit(:title, :description, :school_id, :license_id)
+      params.require(:course).permit(:title, :description, :school_id, :license_id, :card_image, :banner_image)
     end
 
     def course_find
