@@ -5,10 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
   has_one :school, dependent: :destroy
-  has_one :expert
   has_one :photo
   accepts_nested_attributes_for :photo
-
+  has_many :activities
+  has_many :reservations
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
