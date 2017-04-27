@@ -18,11 +18,11 @@
     </div>
     <div class="form-group">
       <%= f.label :card_image, '卡片圖片' %> (350x250)
-      <%= f.text_field :card_image, class: "form-control" %>
+      <%= f.file_field :card_image, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :banner_image, '橫幅圖片' %> (1000x400)
-      <%= f.text_field :banner_image, class: "form-control" %>
+      <%= f.file_field :banner_image, class: "form-control" %>
     </div>
     <div class="form-group text-center">
       <%= f.submit '送出', class: "btn btn-primary" %>
