@@ -3,4 +3,6 @@ class Activity < ApplicationRecord
   has_many :participations
   mount_uploader :card_image, ImageUploader
   mount_uploader :banner_image, ImageUploader
+  has_many :members, through: :participations, source: :user
+  
 end

@@ -9,5 +9,9 @@ class Admin::SchoolsController < ApplicationController
     @school = User.find(current_user)
   end
 
+  def consultations
+    @consultations = current_user.school.consultations
+  end
+
 
 end

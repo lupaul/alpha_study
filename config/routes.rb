@@ -13,8 +13,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :schools do
+      get :consultations, on: :member
       get :account_activity, on: :collection
-      resources :reservations, :activities
+      resources :activities
+      resources :reservations do
+        collection do
+          get :create_reservation
+        end
+      end
     end
     resources :rootusers
   end
@@ -32,6 +38,14 @@ Rails.application.routes.draw do
       post :be_partner
     end
   end
+
+  resources :reservations do
+    member do
+      post :check_out
+    end
+  end
+
+  resources :consultations
 
   root 'welcome#index'
 end

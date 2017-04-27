@@ -12,6 +12,11 @@ class User < ApplicationRecord
   has_many :activityships, through: :participations, source: :activity
   has_many :liked_topics, through: :likes, source: :topic
   has_many :reservations
+  has_many :participated_activity, through: :participations, source: :activity
+  has_many :reservations
+  has_many :appointments
+  has_many :participated_reservation, through: :appointments, source: :reservation
+  has_many :consultations
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid

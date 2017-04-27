@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427070616) do
+
+ActiveRecord::Schema.define(version: 20170427135620) do
+
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
@@ -33,11 +35,32 @@ ActiveRecord::Schema.define(version: 20170427070616) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "reservation_id"
+    t.string   "email"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "consultations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "datetime"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "school_id"
+    t.integer  "license_id"
+
   end
 
   create_table "cooperations", force: :cascade do |t|
@@ -99,6 +122,13 @@ ActiveRecord::Schema.define(version: 20170427070616) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "periods", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "consultation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "image"
@@ -119,6 +149,11 @@ ActiveRecord::Schema.define(version: 20170427070616) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.datetime "datetime"
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "schools", force: :cascade do |t|
