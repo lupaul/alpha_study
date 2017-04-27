@@ -24,7 +24,7 @@ class Api::V1::ActivitiesController < ApiController
   private
 
     def activity_params
-      params.permit(:subject, :description, :location, :presenter_name, :presenter_info, :organizer)
+      params.permit(:subject, :description, :datetime, :location, :presenter_name, :presenter_info, :organizer)
     end
 
     def activity_find
