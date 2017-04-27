@@ -1,0 +1,1 @@
+json.(@reservation, :id, :subject, :location, :datetime, :liked, :card_image)
