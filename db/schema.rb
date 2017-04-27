@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423132732) do
+ActiveRecord::Schema.define(version: 20170427070616) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
     t.text     "description"
-    t.datetime "datatime"
+    t.datetime "datetime"
     t.string   "location"
     t.string   "presenter_name"
     t.text     "presenter_info"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "card_image"
+    t.string   "banner_image"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
@@ -45,9 +47,9 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.text    "description"
     t.integer "school_id"
     t.integer "license_id"
-    t.integer "liked",          default: 0
-    t.string  "card_img_url"
-    t.string  "banner_img_url"
+    t.integer "liked",        default: 0
+    t.string  "card_image"
+    t.string  "banner_image"
     t.index ["license_id"], name: "index_courses_on_license_id"
     t.index ["school_id"], name: "index_courses_on_school_id"
   end
@@ -69,13 +71,13 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.string   "subject"
     t.string   "video_url"
     t.text     "article"
-    t.integer  "liked",          default: 0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "liked",        default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "course_id"
-    t.string   "card_img_url"
-    t.string   "banner_img_url"
-    t.string   "avatar_img_url"
+    t.string   "card_image"
+    t.string   "banner_image"
+    t.string   "avatar_image"
     t.index ["course_id"], name: "index_experts_on_course_id"
   end
 
@@ -93,11 +95,17 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "reservations", force: :cascade do |t|
+    t.string   "subject"
+    t.string   "location"
+    t.boolean  "is_online"
+    t.datetime "datetime"
+    t.string   "status"
+    t.integer  "min_participants", default: 3
+    t.integer  "liked",            default: 0
+    t.string   "card_image"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "schools", force: :cascade do |t|
@@ -109,7 +117,7 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.string   "continent"
     t.string   "address"
     t.string   "email"
-    t.string   "img_url"
+    t.string   "image"
     t.index ["user_id"], name: "index_schools_on_user_id"
   end
 
