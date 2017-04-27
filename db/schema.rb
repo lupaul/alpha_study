@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "cooperations", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -38,7 +45,9 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.text    "description"
     t.integer "school_id"
     t.integer "license_id"
-    t.integer "liked",       default: 0
+    t.integer "liked",          default: 0
+    t.string  "card_img_url"
+    t.string  "banner_img_url"
     t.index ["license_id"], name: "index_courses_on_license_id"
     t.index ["school_id"], name: "index_courses_on_school_id"
   end
@@ -60,18 +69,28 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.string   "subject"
     t.string   "video_url"
     t.text     "article"
-    t.integer  "liked",      default: 0
-    t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["user_id"], name: "index_experts_on_user_id"
+    t.integer  "liked",          default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "course_id"
+    t.string   "card_img_url"
+    t.string   "banner_img_url"
+    t.string   "avatar_img_url"
+    t.index ["course_id"], name: "index_experts_on_course_id"
   end
 
   create_table "licenses", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
-    t.string  "category"
-    t.integer "liked",       default: 0
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_licenses_on_category_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -85,13 +104,12 @@ ActiveRecord::Schema.define(version: 20170423132732) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "continent"
     t.string   "address"
     t.string   "email"
-    t.integer  "liked",       default: 0
-    t.integer  "followed",    default: 0
+    t.string   "img_url"
     t.index ["user_id"], name: "index_schools_on_user_id"
   end
 
