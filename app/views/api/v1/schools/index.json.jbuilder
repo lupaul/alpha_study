@@ -1,1 +1,1 @@
-json.result @schools, :id, :name, :description, :location, :address, :email, :liked, :followed
+json.result @schools, :id, :name, :description, :continent, :address, :email, :image

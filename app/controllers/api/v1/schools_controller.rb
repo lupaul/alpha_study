@@ -24,7 +24,7 @@ class Api::V1::SchoolsController < ApiController
   private
 
     def school_params
-      params.permit(:name, :description, :location, :address, :email, :liked, :followed)
+      params.permit(:name, :description, :continent, :address, :email, :liked)
     end
 
     def school_find
