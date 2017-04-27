@@ -1,6 +1,4 @@
-class Activity < ApplicationRecord
+class Reservation < ApplicationRecord
   belongs_to :school, class_name: :user, foreign_key: :user_id, optional: true
-  has_many :participations
   mount_uploader :card_image, ImageUploader
-  mount_uploader :banner_image, ImageUploader
 end

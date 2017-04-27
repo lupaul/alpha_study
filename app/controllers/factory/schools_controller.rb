@@ -32,7 +32,7 @@ class Factory::SchoolsController < ApplicationController
   private
 
     def school_params
-      params.require(:school).permit(:name, :description, :location, :address, :email)
+      params.require(:school).permit(:name, :description, :location, :address, :email, :image)
     end
 
     def school_find

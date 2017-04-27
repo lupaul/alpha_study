@@ -1,0 +1,16 @@
+<div class="container text-center">
+  <h3>預約資訊</h3>
+  <ul class="list-group center-block" style="width: 60%">
+    <li class="list-group-item">主題：<%= @reservation.subject %></li>
+    <li class="list-group-item">是否線上：<%= @reservation.is_online %></li>
+    <li class="list-group-item">地區：<%= @reservation.location %></li>
+    <li class="list-group-item">時間：<%= @reservation.datetime %></li>
+  </ul>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">圖片</h4>
+    <div class="panel-body"><%= image_tag @reservation.card_image_url.to_s %></div>
+  </div>
+  <hr>
+  <%= link_to '修改', edit_reservation_path(@reservation), class: "btn btn-link btn-lg" %>
+  <%= link_to '返回', reservations_path, class: "btn btn-link btn-lg" %>
+</div>

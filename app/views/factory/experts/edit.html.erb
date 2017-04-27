@@ -16,6 +16,22 @@
       <%= f.label :article, '分享文章' %>
       <%= f.text_field :article, class: "form-control" %>
     </div>
+    <div class="form-group">
+      <%= f.label :course_id, '課程' %>
+      <%= f.select :course_id, Course.all.collect { |c| [c.title, c.id] }, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :avatar_image, '達人頭像' %>
+      <%= f.file_field :avatar_image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :card_image, '卡片圖片' %>
+      <%= f.file_field :card_image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :banner_image, '橫幅圖片' %>
+      <%= f.file_field :banner_image, class: "form-control" %>
+    </div>
     <div class="form-group text-center">
       <%= f.submit '送出', class: "btn btn-primary" %>
     </div>

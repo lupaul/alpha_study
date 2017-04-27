@@ -32,7 +32,7 @@ class Factory::ExpertsController < ApplicationController
   private
 
     def expert_params
-      params.require(:expert).permit(:name, :subject, :video_url, :article)
+      params.require(:expert).permit(:name, :subject, :video_url, :article, :course_id, :avatar_image, :card_image, :banner_image)
     end
 
     def expert_find

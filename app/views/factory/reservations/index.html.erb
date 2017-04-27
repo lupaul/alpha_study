@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="text-center">預約列表</h2>
+  <%= link_to '回首頁', root_path, class: "btn btn-success" %>
+  <%= link_to '加入預約', new_reservation_path, class: "btn btn-info" %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>主題</th>
+        <th>地點</th>
+        <th>時間</th>
+        <th>修改</th>
+        <th>刪除</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= link_to reservation.subject, reservation_path(reservation) %></td>
+        <td><%= reservation.location %></td>
+        <td><%= reservation.datetime %></td>
+        <td><%= link_to '修改', edit_reservation_path(reservation), class: "btn btn-warning btn-md" %></td>
+        <td><%= link_to '刪除', reservation_path(reservation), method: :delete, class: "btn btn-danger btn-md" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

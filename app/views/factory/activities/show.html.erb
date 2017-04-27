@@ -3,6 +3,7 @@
   <ul class="list-group center-block" style="width: 60%">
     <li class="list-group-item">名稱：<%= @activity.subject %></li>
     <li class="list-group-item">地區：<%= @activity.location %></li>
+    <li class="list-group-item">時間：<%= @activity.datetime %></li>
     <li class="list-group-item">講師：<%= @activity.presenter_name %></li>
     <li class="list-group-item">講師介紹：<p><%= simple_format(@activity.presenter_info) %></p></li>
     <li class="list-group-item">主辦單位：<%= @activity.organizer %></li>
@@ -10,6 +11,15 @@
   <div class="panel panel-info text-left">
     <h4 class="panel-heading">介紹</h4>
     <div class="panel-body"><%= simple_format(@activity.description) %></div>
+  </div>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">圖片</h4>
+    <div class="panel-body">
+      <div>卡片圖片：</div> 
+      <%= image_tag @activity.card_image %>
+      <div>橫幅圖片：</div> 
+      <%= image_tag @activity.banner_image %>
+    </div>
   </div>
   <hr>
   <%= link_to '修改', edit_activity_path(@activity), class: "btn btn-link btn-lg" %>

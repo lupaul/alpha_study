@@ -2,13 +2,17 @@
   <h3>學校資訊</h3>
   <ul class="list-group center-block" style="width: 60%">
     <li class="list-group-item">名稱：<%= @school.name %></li>
-    <li class="list-group-item">地區：<%= @school.location %></li>
+    <li class="list-group-item">州別：<%= @school.continent %></li>
     <li class="list-group-item">地址：<%= @school.address %></li>
     <li class="list-group-item">信箱：<%= @school.email %></li>
   </ul>
   <div class="panel panel-info text-left">
     <h4 class="panel-heading">介紹</h4>
     <div class="panel-body"><%= simple_format(@school.description) %></div>
+  </div>
+  <div class="panel panel-info text-left">
+    <h4 class="panel-heading">圖片</h4>
+    <div class="panel-body"><%= image_tag @school.image_url.to_s %></div>
   </div>
   <hr>
   <%= link_to '修改', edit_school_path(@school), class: "btn btn-link btn-lg" %>
