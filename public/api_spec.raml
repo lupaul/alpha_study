@@ -1,12 +1,17 @@
 #%RAML 1.0
-title: Jutsudy API
+title: Jutsudy
 version: v1
 baseUri: http://api.jutsudy.tw/{version}
 mediaType:  application/json
 types: 
+  Image:
+    type: object
+    properties: 
+      url: string
   Activity:
     type: object
     properties: 
+      id: integer
       subject: string
       description: string
       datetime: datetime-only
@@ -15,6 +20,8 @@ types:
       presenter_info: string
       organizer: string
       liked: integer
+      card_image: Image
+      banner_image: Image
   ActivityList:
     type: object
     properties: 
@@ -22,11 +29,15 @@ types:
   Expert:
     type: object
     properties: 
+      id: integer
       name: string
       subject: string
       video_url: string
       article: string
       liked: integer
+      avatar_image: Image
+      card_image: Image
+      banner_image: Image
   ExpertList:
     type: object
     properties: 
@@ -34,13 +45,14 @@ types:
   School:
     type: object
     properties: 
+      id: integer
       name: string
       description: string
-      location: string
+      continent: string
       address: string
       email: string
       liked: integer
-      followed: integer
+      image: Image
   SchoolList:
     type: object
     properties: 
@@ -48,13 +60,29 @@ types:
   Course:
     type: object
     properties: 
+      id: integer
       title: string
       description: string
       liked: integer
+      card_image: Image
+      banner_image: Image
   CourseList:
     type: object
     properties: 
       result: Course[]
+  Reservation:
+    type: object
+    properties: 
+      id: integer
+      subject: string
+      location: string
+      datetime: datetime-only
+      liked: integer
+      card_image: Image
+  ReservationList:
+    type: object
+    properties: 
+      result: Reservation[]
 /activities:
   get:
     displayName: Activities
@@ -67,6 +95,7 @@ types:
             example: 
               result:
                 -
+                  id: 1
                   subject: 多益考照經驗分享
                   description: 多多益善
                   datetime: 2017-05-10T18:00:00
@@ -75,7 +104,12 @@ types:
                   presenter_info: study abroad guru
                   organizer: Sean Company
                   liked: 100
+                  card_image:
+                    url: uploads/activity/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/activity/banner_image/xxxx.png
                 -
+                  id: 2
                   subject: 多益考照經驗分享
                   description: 多多益善
                   datetime: 2017-05-10T18:00:00
@@ -84,6 +118,10 @@ types:
                   presenter_info: study abroad guru
                   organizer: Sean Company
                   liked: 100
+                  card_image:
+                    url: uploads/activity/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/activity/banner_image/xxxx.png
   post:
     description: create an activity
     body:
@@ -110,6 +148,7 @@ types:
               type: Activity
               example:
                 value:
+                  id: 1
                   subject: 多益考照經驗分享
                   description: 多多益善
                   datetime: 2017-05-10T18:00:00
@@ -118,6 +157,10 @@ types:
                   presenter_info: study abroad guru
                   organizer: Sean Company
                   liked: 100
+                  card_image:
+                    url: uploads/activity/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/activity/banner_image/xxxx.png
     patch:
       description: update an activity
       body:
@@ -175,17 +218,31 @@ types:
             example: 
               result:
                 -
+                  id: 1
                   name: Sean
                   subject: 菲律賓的神奇冒險
                   video_url: https://www.youtube.com/watch?v=6RN2t-Wy0lY
                   article: 待補充
                   liked: 500
+                  avatar_image:
+                    url: uploads/expert/avatar_image/xxxx.png
+                  card_image:
+                    url: uploads/expert/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/expert/banner_image/xxxx.png
                 -
+                  id: 2
                   name: Sean
                   subject: 菲律賓的神奇冒險
                   video_url: https://www.youtube.com/watch?v=6RN2t-Wy0lY
                   article: 待補充
-                  liked: 200
+                  liked: 500
+                  avatar_image:
+                    url: uploads/expert/avatar_image/xxxx.png
+                  card_image:
+                    url: uploads/expert/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/expert/banner_image/xxxx.png
   post:
     description: create an expert
     body:
@@ -212,11 +269,18 @@ types:
               type: Expert
               example:
                 value:
+                  id: 1
                   name: Sean
                   subject: 菲律賓的神奇冒險
                   video_url: https://www.youtube.com/watch?v=6RN2t-Wy0lY
                   article: 待補充
-                  liked: 100
+                  liked: 500
+                  avatar_image:
+                    url: uploads/expert/avatar_image/xxxx.png
+                  card_image:
+                    url: uploads/expert/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/expert/banner_image/xxxx.png
     patch:
       description: update an expert
       body:
@@ -274,21 +338,25 @@ types:
             example: 
               result:
                 -
+                  id: 1
                   name: QQ English
                   description: QQ位在宿霧IT PARK 經濟開發區、附近聚集了高級商業辦公大樓。交通便利、附近有購物中心、按摩店、小吃店、生活非常便利。提供開放式英語教學，全面加強聽跟說的基礎能力。
-                  location: 宿霧正市中心
+                  continent: 菲律賓
                   address: 7/F TGU Tower Asia Town I.T. Park, Salinas Drive Apas, Cebu City
                   email: sean@justudy.tw
                   liked: 100
-                  followed: 20
+                  image:
+                    url: uploads/school/image/xxxx.png
                 -
+                  id: 2
                   name: QQ English
                   description: QQ位在宿霧IT PARK 經濟開發區、附近聚集了高級商業辦公大樓。交通便利、附近有購物中心、按摩店、小吃店、生活非常便利。提供開放式英語教學，全面加強聽跟說的基礎能力。
-                  location: 宿霧正市中心
+                  continent: 菲律賓
                   address: 7/F TGU Tower Asia Town I.T. Park, Salinas Drive Apas, Cebu City
                   email: sean@justudy.tw
                   liked: 100
-                  followed: 20
+                  image:
+                    url: uploads/school/image/xxxx.png
   post:
     description: create an school
     body:
@@ -307,7 +375,7 @@ types:
               message: fail
   /{id}:
     get:
-      description: get one activity information
+      description: get one school information
       responses: 
         200:
           body: 
@@ -315,13 +383,15 @@ types:
               type: School
               example:
                 value:
+                  id: 1
                   name: QQ English
                   description: QQ位在宿霧IT PARK 經濟開發區、附近聚集了高級商業辦公大樓。交通便利、附近有購物中心、按摩店、小吃店、生活非常便利。提供開放式英語教學，全面加強聽跟說的基礎能力。
-                  location: 宿霧正市中心
+                  continent: 菲律賓
                   address: 7/F TGU Tower Asia Town I.T. Park, Salinas Drive Apas, Cebu City
                   email: sean@justudy.tw
                   liked: 100
-                  followed: 20
+                  image:
+                    url: uploads/school/card_image/xxxx.png
     patch:
       description: update an school
       body:
@@ -379,13 +449,23 @@ types:
             example: 
               result:
                 -
+                  id: 1
                   title: 英文好棒棒
                   description: ＡＢＣＤ
                   liked: 100
+                  card_image:
+                    url: uploads/course/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/course/banner_image/xxxx.png
                 -
+                  id: 2
                   title: 英文好棒棒
                   description: ＡＢＣＤ
                   liked: 100
+                  card_image:
+                    url: uploads/course/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/course/banner_image/xxxx.png
   post:
     description: create a course
     body:
@@ -412,9 +492,14 @@ types:
               type: Course
               example:
                 value:
+                  id: 1
                   title: 英文好棒棒
                   description: ＡＢＣＤ
                   liked: 100
+                  card_image:
+                    url: uploads/course/card_image/xxxx.png
+                  banner_image:
+                    url: uploads/course/banner_image/xxxx.png
     patch:
       description: update a course
       body:
@@ -460,4 +545,108 @@ types:
             application/json:
               example:
                 message: fail
-                
+/reservations:
+  get:
+    displayName: Reservations
+    description: get all reservations
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: ReservationList
+            example: 
+              result:
+                -
+                  id: 1
+                  subject:  趕快寫code
+                  location: Alphacamp
+                  datetime: 2017-05-10T18:00:00
+                  liked: 300
+                  card_image:
+                    url: uploads/reservation/card_image/xxxx.png
+                -
+                  id: 2
+                  subject:  趕快寫code
+                  location: Alphacamp
+                  datetime: 2017-05-10T18:00:00
+                  liked: 300
+                  card_image:
+                    url: uploads/reservation/card_image/xxxx.png
+  post:
+    description: create a reservation
+    body:
+      application/json:
+        type: Reservation
+    responses: 
+      200:
+        body:
+          application/json:
+            example:
+              message: ok
+      400:
+        body:
+          application/json:
+            example:
+              message: fail
+  /{id}:
+    get:
+      description: get one reservation information
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: Reservation
+              example:
+                value:
+                  id: 1
+                  subject:  趕快寫code
+                  location: Alphacamp
+                  datetime: 2017-05-10T18:00:00
+                  liked: 300
+                  card_image:
+                    url: uploads/reservation/card_image/xxxx.png
+    patch:
+      description: update a reservation
+      body:
+        application/json:
+          type: Reservation
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    put:
+      description: update a reservation
+      body:
+        application/json:
+          type: Reservation
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
+    delete:
+      description: delete a reservation
+      responses: 
+        200:
+          body:
+            application/json:
+              example:
+                message: ok
+        400:
+          body:
+            application/json:
+              example:
+                message: fail
