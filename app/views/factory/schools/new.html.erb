@@ -11,8 +11,8 @@
     </div>
     <br>
     <div class="form-group">
-      <%= f.label :location, '地區' %>
-      <%= f.text_field :location, class: "form-control" %>
+      <%= f.label :continent, '州別' %>
+      <%= f.text_field :continent, class: "form-control" %>
     </div>
     <br>
     <div class="form-group">
@@ -23,6 +23,10 @@
     <div class="form-group">
       <%= f.label :email, '信箱' %>
       <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image, '圖片' %> (350x250)
+      <%= f.file_field :image, class: "form-control" %>
     </div>
     <div class="form-group text-center">
       <%= f.submit '送出', class: "btn btn-primary" %>
