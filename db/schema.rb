@@ -104,8 +104,10 @@ ActiveRecord::Schema.define(version: 20170427070616) do
     t.integer  "min_participants", default: 3
     t.integer  "liked",            default: 0
     t.string   "card_image"
+    t.integer  "user_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "schools", force: :cascade do |t|

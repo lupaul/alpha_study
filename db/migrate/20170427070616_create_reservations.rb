@@ -9,6 +9,7 @@ class CreateReservations < ActiveRecord::Migration[5.0]
       t.integer :min_participants, default: 3
       t.integer :liked, default: 0
       t.string :card_image
+      t.references :user, index: true
       t.timestamps
     end
   end
