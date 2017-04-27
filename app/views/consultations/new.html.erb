@@ -1,0 +1,19 @@
+<%= simple_form_for @consultation , url: consultations_path do |f| %>
+  <%= f.input :name , label: "姓名" ,input_html:{class: "form-control"}%>
+  <%= f.input :email ,placeholder: 'user@domain.com'%>
+  <div class="group" id= "consultation">
+    <%= f.label "選擇時段" %> <br>
+    <%= f.collection_check_boxes :datetime, Consultation::TIME_STRING, :first,  :last%> <br><br>
+    <%= f.label "選擇時間區段" %>
+    <%= f.input :start_date, label: "開始日期", as: :date,
+                             order: [ :year,:month, :day] %>
+    <%= f.input :end_date, label: "結束日期", as: :date,
+                            order: [:month, :day] %>
+
+    <br>  <br>
+
+
+
+  </div>
+    <%= f.button :submit, "預約查詢" ,input_html:{class: "form-control"}%>
+<% end %>

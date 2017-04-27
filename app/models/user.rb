@@ -10,11 +10,12 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :photo
   has_many :activities
   has_many :participations
-  has_many :activityships, through: :participations, source: :activity
+  has_many :participated_activity, through: :participations, source: :activity
   has_many :reservations
-  
+  has_many :appointments
+  has_many :participated_reservation, through: :appointments, source: :reservation
+  has_many :consultations
 
-  has_many :liked_topics, through: :likes, source: :topic
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
     user = User.find_by_fb_uid( auth.uid )

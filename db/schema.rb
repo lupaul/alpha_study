@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424134302) do
+ActiveRecord::Schema.define(version: 20170427095516) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
@@ -29,6 +29,25 @@ ActiveRecord::Schema.define(version: 20170424134302) do
     t.boolean  "is_online"
     t.string   "software"
     t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "reservation_id"
+    t.string   "email"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "consultations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "datetime"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "cooperations", force: :cascade do |t|
@@ -83,6 +102,13 @@ ActiveRecord::Schema.define(version: 20170424134302) do
     t.integer  "activity_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "periods", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "consultation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "photos", force: :cascade do |t|
