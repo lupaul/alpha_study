@@ -1,1 +1,1 @@
-json.result @experts, :id, :name, :subject, :video_url, :article, :liked
+json.result @experts, :id, :name, :subject, :video_url, :article, :liked, :avatar_image, :card_image, :banner_image

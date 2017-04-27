@@ -1,1 +1,1 @@
-json.(@expert, :id, :name, :subject, :video_url, :article, :liked)
+json.(@expert, :id, :name, :subject, :video_url, :article, :liked, :avatar_image, :card_image, :banner_image)
