@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  scope path:'', module: 'factory', constraints: -> (req) { req.host == 'factory.justudy.tw' } do
+  scope path:'', module: 'factory', as: 'factory', constraints: -> (req) { req.host == 'factory.justudy.tw' } do
     resources :schools, :licenses, :courses, :activities, :experts, :reservations
     root 'factories#index'
   end
 
-  scope path:'v1', module: 'api/v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
+  scope path:'v1', module: 'api/v1', as: 'v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
     resources :schools, :licenses, :courses, :activities, :experts, :reservations, except: [:new, :edit]
     get 'spec', to: redirect('api_spec.html')
   end
@@ -32,6 +32,9 @@ Rails.application.routes.draw do
       post :be_partner
     end
   end
+
+  resources :categories,:courses, only: [:show]
+  resources :activities, :experts, :reservations, :schools, only: [:index, :show]
 
   root 'welcome#index'
 end
