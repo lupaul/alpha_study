@@ -1,4 +1,5 @@
 class Factory::ExpertsController < ApplicationController
+  layout 'factory'
   before_action :expert_find, except: [ :index, :new, :create ]
 
   def index
@@ -11,7 +12,7 @@ class Factory::ExpertsController < ApplicationController
 
   def create
     expert = Expert.new(expert_params)
-    expert.save! ? redirect_to(experts_path) : render(:new)
+    expert.save! ? redirect_to(factory_experts_path) : render(:new)
   end
 
   def show
@@ -21,12 +22,12 @@ class Factory::ExpertsController < ApplicationController
   end
 
   def update
-    @expert.update!(expert_params) ? redirect_to(expert_path) : render(:edit)
+    @expert.update!(expert_params) ? redirect_to(factory_expert_path) : render(:edit)
   end
 
   def destroy
     @expert.destroy
-    redirect_to experts_path
+    redirect_to factory_experts_path
   end
 
   private

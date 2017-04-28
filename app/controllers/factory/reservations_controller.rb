@@ -1,4 +1,5 @@
 class Factory::ReservationsController < ApplicationController
+  layout 'factory'
   before_action :reservation_find, except: [ :index, :new, :create ]
 
   def index
@@ -11,7 +12,7 @@ class Factory::ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
-    reservation.save! ? redirect_to(reservations_path) : render(:new)
+    reservation.save! ? redirect_to(factory_reservations_path) : render(:new)
   end
 
   def show
@@ -21,12 +22,12 @@ class Factory::ReservationsController < ApplicationController
   end
 
   def update
-    @reservation.update!(reservation_params) ? redirect_to(reservation_path) : render(:edit)
+    @reservation.update!(reservation_params) ? redirect_to(factory_reservation_path) : render(:edit)
   end
 
   def destroy
     @reservation.destroy
-    redirect_to reservations_path
+    redirect_to factory_reservations_path
   end
 
   private

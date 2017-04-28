@@ -1,4 +1,5 @@
 class Factory::ActivitiesController < ApplicationController
+  layout 'factory'
   before_action :activity_find, except: [ :index, :new, :create ]
 
   def index
@@ -11,7 +12,7 @@ class Factory::ActivitiesController < ApplicationController
 
   def create
     activity = Activity.new(activity_params)
-    activity.save! ? redirect_to(activities_path) : render(:new)
+    activity.save! ? redirect_to(factory_activities_path) : render(:new)
   end
 
   def show
@@ -21,12 +22,12 @@ class Factory::ActivitiesController < ApplicationController
   end
 
   def update
-    @activity.update!(activity_params) ? redirect_to(activity_path) : render(:edit)
+    @activity.update!(activity_params) ? redirect_to(factory_activity_path) : render(:edit)
   end
 
   def destroy
     @activity.destroy
-    redirect_to activities_path
+    redirect_to factory_activities_path
   end
 
   private

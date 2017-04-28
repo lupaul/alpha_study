@@ -1,4 +1,5 @@
 class Factory::LicensesController < ApplicationController
+  layout 'factory'
   before_action :license_find, except: [ :index, :new, :create ]
 
   def index
@@ -11,7 +12,7 @@ class Factory::LicensesController < ApplicationController
 
   def create
     license = License.new(license_params)
-    license.save! ? redirect_to(licenses_path) : render(:new)
+    license.save! ? redirect_to(factory_licenses_path) : render(:new)
   end
 
   def show
@@ -21,12 +22,12 @@ class Factory::LicensesController < ApplicationController
   end
 
   def update
-    @license.update!(license_params) ? redirect_to(license_path) : render(:edit)
+    @license.update!(license_params) ? redirect_to(factory_license_path) : render(:edit)
   end
 
   def destroy
     @license.destroy
-    redirect_to licenses_path
+    redirect_to factory_licenses_path
   end
 
   private

@@ -11,6 +11,6 @@
     <div class="panel-body"><%= image_tag @reservation.card_image_url.to_s %></div>
   </div>
   <hr>
-  <%= link_to '修改', edit_reservation_path(@reservation), class: "btn btn-link btn-lg" %>
-  <%= link_to '返回', reservations_path, class: "btn btn-link btn-lg" %>
+  <%= link_to '修改', edit_factory_reservation_path(@reservation), class: "btn btn-link btn-lg" %>
+  <%= link_to '返回', factory_reservations_path, class: "btn btn-link btn-lg" %>
 </div>

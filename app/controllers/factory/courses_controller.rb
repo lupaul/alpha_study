@@ -1,4 +1,5 @@
 class Factory::CoursesController < ApplicationController
+  layout 'factory'
   before_action :course_find, except: [ :index, :new, :create ]
 
   def index
@@ -11,7 +12,7 @@ class Factory::CoursesController < ApplicationController
 
   def create
     course = Course.new(course_params)
-    course.save! ? redirect_to(courses_path) : render(:new)
+    course.save! ? redirect_to(factory_courses_path) : render(:new)
   end
 
   def show
@@ -21,12 +22,12 @@ class Factory::CoursesController < ApplicationController
   end
 
   def update
-    @course.update!(course_params) ? redirect_to(course_path) : render(:edit)
+    @course.update!(course_params) ? redirect_to(factory_course_path) : render(:edit)
   end
 
   def destroy
     @course.destroy
-    redirect_to courses_path
+    redirect_to factory_courses_path
   end
 
   private

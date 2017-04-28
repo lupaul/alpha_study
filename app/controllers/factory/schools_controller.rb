@@ -1,4 +1,5 @@
 class Factory::SchoolsController < ApplicationController
+  layout 'factory'
   before_action :school_find, except: [ :index, :new, :create ]
 
   def index
@@ -11,7 +12,7 @@ class Factory::SchoolsController < ApplicationController
 
   def create
     school = School.new(school_params)
-    school.save! ? redirect_to(schools_path) : render(:new)
+    school.save! ? redirect_to(factory_schools_path) : render(:new)
   end
 
   def show
@@ -21,12 +22,12 @@ class Factory::SchoolsController < ApplicationController
   end
 
   def update
-    @school.update!(school_params) ? redirect_to(school_path) : render(:edit)
+    @school.update!(school_params) ? redirect_to(factory_school_path) : render(:edit)
   end
 
   def destroy
     @school.destroy
-    redirect_to schools_path
+    redirect_to factory_schools_path
   end
 
   private
