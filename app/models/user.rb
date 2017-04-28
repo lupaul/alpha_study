@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
+
+  before_create :generate_authentication_token
+  
   has_one :school, dependent: :destroy
   has_one :photo
   accepts_nested_attributes_for :photo
@@ -17,6 +20,12 @@ class User < ApplicationRecord
   has_many :appointments
   has_many :participated_reservation, through: :appointments, source: :reservation
   has_many :consultations
+
+
+
+  def generate_authentication_token
+     self.authentication_token = Devise.friendly_token
+  end
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
