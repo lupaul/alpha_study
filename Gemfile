@@ -41,7 +41,7 @@ gem 'figaro'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'mini_magick'
-gem "fog"
+gem "fog",require: "fog/aws"
 
 group :production do
   gem 'mysql2'
