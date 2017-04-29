@@ -1,0 +1,34 @@
+#school-index {
+  .school-group {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .school-card {
+      width: 350px;
+      margin-top: 20px;
+      margin-right: 20px;
+      border: 1px #979797 solid;
+      
+      img {
+        width: 100%;
+      }
+
+      .school-info {
+        padding: 5px 20px;
+        line-height: 25px;
+        background-color: white;
+      }
+
+      .school-btn {
+        display: block;
+        width: 100%;
+        padding: 2px 0;
+        text-align: center;
+        font-size: 16px;
+        letter-spacing: 1px;
+        color: white;
+        background-color: #4576D1;
+      }
+    }
+  }
+}
