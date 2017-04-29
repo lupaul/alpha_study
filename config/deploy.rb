@@ -19,7 +19,10 @@ set :deploy_to, "/home/pochia/alpha_study"
 
 # Default value for :pty is false
 # set :pty, true
-set :linked_dirs, %w(public/uploads)
+
+# set :linked_dirs, %w(public/uploads)
+# set :linked_dirs, fetch(:linked_dirs) + %w{public/system public/uploads}
+
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", "config/secrets.yml"
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
