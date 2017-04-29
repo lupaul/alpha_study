@@ -1,3 +1,212 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$category-1: #5FC2CC;
+$category-2: #F8D147;
+$category-3: #AC2960;
+
+#categories {
+  .title {
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px  #979797;
+  }
+
+  .category-group {
+    margin: 95px 0 40px 0;
+    display: flex;
+
+    .category-card {
+      width: calc(100% / 3);
+      padding: 0 70px;
+    }
+
+    .category-card:nth-child(1) {
+      background-color: $category-1;
+
+      .category-title {
+        background-color: $category-1;
+      }
+    }
+
+    .category-card:nth-child(2) {
+      background-color: $category-2;
+
+      .category-title {
+       background-color: $category-2;
+      }
+    }
+
+    .category-card:nth-child(3) {
+      background-color: $category-3;
+
+      .category-title {
+       background-color: $category-3;
+      }
+    }
+
+    .category-title {
+      position: relative;
+      top: -75px;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 4px white solid;
+      box-shadow: 0 1px 3px #979797;
+      font-size: 28px;
+      text-align: center;
+      line-height: 150px;
+      color: white;
+    }
+
+    .category-description {
+      font-size: 26px;
+      color: black;
+    }
+
+    .category-btn {
+      display: block;
+      width: 120px;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px white solid;
+      line-height: 40px;
+      text-align: center;
+      font-size: 16px;
+      color: white;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+#facing, #sharing, #orientation {
+  margin-bottom: 60px;
+  background-color: #F8D147;
+}
+
+.title-group {
+  width: 360px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.instances {
+  column-count: 2;
+  column-gap: 40px;
+
+  .instance-card {
+    display: inline-block;
+    width: 100%;
+    border: 1px #979797 solid;
+    background-color: white;
+
+    img {
+      width: 100%;
+      height: 270px;
+    }
+
+    .instance-info {
+      padding: 10px 25px;
+      line-height: 45px;
+    }
+
+    .card-btn {
+      display: block;
+      width: 100%;
+      height: 50px;
+      border-radius: 5px;
+      font-size: 16px;
+      letter-spacing: 1px;
+      line-height: 50px;
+      text-align: center;
+      background-color: #4D85EA;
+      color: white;
+    }
+  }
+}
+
+.more-btn {
+  display: block;
+  width: 300px;
+  height: 60px;
+  position: relative;
+  top: 30px;
+  margin: 0 auto;
+  border-radius: 5px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 2px;
+  background-color: #4D85EA;
+  color: white;
+}
+
+#schools {
+  .title {
+    padding: 8px;
+    background-color: #4D85EA;
+    text-align: center;
+    color: white;
+  }
+
+  .school-group {
+    padding: 25px;
+    column-count: 3;
+    column-gap: 20px;
+  }
+
+  .school-card {
+    display: inline-block;
+    border-bottom: 10px #4D85EA solid;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 250px;
+    }
+
+    .school-info {
+      padding: 15px 25px;
+      line-height: 40px;
+      background-color: #FDFDFD
+    }
+  }
+}
+
+#contact {
+  .news-letter {
+    margin-bottom: 2px;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    height: 80px;
+    line-height: 80px;
+    font-size: 16px;
+    background-color: #FDFDFD;
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .big {
+      font-size: 22px;
+    }
+
+    #email {
+      width: 400px;
+      height: 30px;
+    }
+  }
+
+  .fans-page {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    height: 80px;
+    line-height: 80px;
+    font-size: 16px;
+    background-color: #FDFDFD;
+  }
+}
