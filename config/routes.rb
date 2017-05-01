@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       resources :activities
       resources :reservations do
         collection do
-          get :create_reservation
+          post :checkout
+          post :join
         end
       end
     end
@@ -41,11 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reservations do
-    member do
-      post :check_out
-    end
-  end
+  resources :reservations
 
   resources :consultations
 

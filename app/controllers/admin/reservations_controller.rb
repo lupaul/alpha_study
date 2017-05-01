@@ -5,6 +5,7 @@ class Admin::ReservationsController < ApplicationController
     @reservations = current_user.reservations
   end
 
+
   def new
     @reservation = Reservation.new
   end
@@ -18,6 +19,28 @@ class Admin::ReservationsController < ApplicationController
       flash[:alert] = "Faill created!!!"
       render :new
     end
+  end
+
+  def checkout
+
+    @consultation = Consultation.find(params[:consulid])
+    @reservations = current_user.reservations
+
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
+  def join
+    if params[:consultation] && params[:reservation]
+      consultation = Consultation.find(params[:consultation])
+      reservation = Reservation.find(params[:reservation])
+      consultation.user.participated_reservation << reservation
+      flash[:notice] = "成功加入預約活動 "
+
+    end
+    redirect_to admin_school_reservations_path(current_user)
   end
 
   private

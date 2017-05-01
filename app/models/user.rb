@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook]
 
   before_create :generate_authentication_token
-  
+
   has_one :school, dependent: :destroy
   has_one :photo
   accepts_nested_attributes_for :photo
@@ -21,7 +21,9 @@ class User < ApplicationRecord
   has_many :participated_reservation, through: :appointments, source: :reservation
   has_many :consultations
 
-
+  def is_member_of?(reservation)
+    participated_reservation.include?(reservation)
+  end
 
   def generate_authentication_token
      self.authentication_token = Devise.friendly_token
