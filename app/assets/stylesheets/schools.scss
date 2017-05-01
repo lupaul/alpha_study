@@ -1,8 +1,14 @@
 #school-index {
+  padding: 30px 0;
+
+  .school-title {
+    text-align: center;
+  }
+
   .school-group {
     display: flex;
     flex-wrap: wrap;
-    
+
     .school-card {
       width: 350px;
       margin-top: 20px;
