@@ -19,6 +19,14 @@
       <td>
         <%= reservation.datetime %>
       </td>
+      <td>
+        <% reservation.members.each do | member| %>
+          <%= member.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= reservation.count %>
+      </td>
     </tr>
     <% end %>
   </tbody>

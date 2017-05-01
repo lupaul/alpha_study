@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>#</th>
+      <th>證照類別</th>
       <th>學生名稱 Student Name</th>
       <th>學生E-mail</th>
       <th>學生希望時間 Available Time</th>
@@ -14,8 +15,11 @@
   </thead>
   <tbody>
     <% @consultations.each do |consultation| %>
-    <tr>
+    <tr data-id="<%= consultation.id %>">
       <td></td>
+      <td>
+        <%= consultation.license.title %>
+      </td>
       <td>
         <%= consultation.user.name %>
       </td>
@@ -37,10 +41,12 @@
         <%= link_to("建立新預約", new_admin_school_reservation_path(current_user), class: "btn btn-warning") %>
       </td>
       <td>
-      <%= link_to("加入現有預約", "#", class: "btn btn-info")%>
-      </td>
+        <%= link_to "加入現有預約活動",
+        checkout_admin_school_reservations_path(current_user,consulid: consultation.id),method: :post, remote: true ,class: "btn btn-success" %>
 
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+<div id="product-modal" class="modal fade"></div>
