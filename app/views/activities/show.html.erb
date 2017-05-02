@@ -8,13 +8,14 @@
     <ul class="list-unstyled">
       <li>活動日期：<%= @activity.datetime %></li>
       <li>地址：<%= @activity.location %></li>
-      <li>主辦單位：<%= @activity.presenter_name %></li>
-      <li>活動日期：<%= @activity.organizer %></li>
+      <li>主講人：<%= @activity.presenter_name %></li>
+      <li>主辦單位：<%= @activity.organizer %></li>
     </ul>
     <ul class="list-inline">
       <li><a href="#description">活動介紹</a></li>
       <li><a href="#presenter">活動嘉賓</a></li>
       <li><a href="#note">注意事項</a></li>
+      <li><%= link_to '我要報名', participate_activity_path(@activity) %></li>
     </ul>
   </div>
   <hr>
