@@ -17,4 +17,14 @@ class ActivitiesController < ApplicationController
       redirect_to :back, notice: '報名失敗！'
     end
   end
+
+  def cancel
+    @activity = Activity.find(params[:id])
+    participation = Participation.find_by(activity: @activity)
+    if participation.destroy
+      redirect_to :back, notice: '取消成功！'
+    else
+      redirect_to :back, notice: '取消失敗！'
+    end
+  end
 end
