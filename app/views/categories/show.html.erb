@@ -1,0 +1,41 @@
+<div id="category-show" class="container">
+  <div class="category-nav">
+    <div class="title">
+      <h2>證照達人養成</h2>
+    </div>
+    <div class="nav-list">
+      <ul class="list-inline">
+        <% @categories.each do |c| %>
+        <li><%= link_to c.title, category_path(c), class: 'category-btn' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="license-list">
+    <h3>證照分類：</h3>
+    <ul class="list-inline">
+      <% @category.licenses.each do |license| %>
+      <li><%= link_to license.title, license_path(license), class: 'license-btn', remote: true %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="license-description">
+    <div class="title">證照介紹</div>
+    <div class="description"><%= @category.licenses.first.description %></div>
+  </div>
+  <div class="course-group">
+    <% @courses.each do |course| %>
+    <div class="course-card">
+      <%= image_tag course.card_image_url.to_s %>
+      <div class="course-info">
+        <ul class="list-unstyled">
+          <li><%= course.school.name %></li>
+          <li><%= course.title %></li>
+          <li><%= course.school.continent %></li>
+        </ul>
+      </div>
+      <%= link_to 'more+', course_path(course), class: 'category-btn' %>
+    </div>
+    <% end %>
+  </div>
+</div>
