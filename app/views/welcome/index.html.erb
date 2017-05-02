@@ -85,7 +85,7 @@
         <div class="row instance-info">
           <div class="col-md-6"><%= reservation.subject %></div>
           <div class="col-md-6"><%= reservation.datetime %></div>
-          <div class="col-md-12"><%= reservation.school.name %></div>
+          <div class="col-md-12"><%= reservation.location %></div>
           <div class="col-md-6"><%= link_to '喜歡', class: ['card-btn'] %></div>
           <div class="col-md-6"><%= link_to '+1 我要預約', reservation_path(reservation), class: ['card-btn'] %></div>
         </div>

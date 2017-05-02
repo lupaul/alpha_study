@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories,:courses, only: [:show]
+  resources :categories,:courses, :licenses, only: [:show]
   resources :activities, :experts, :reservations, :schools, only: [:index, :show]
 
   root 'welcome#index'
