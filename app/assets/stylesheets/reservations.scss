@@ -1,0 +1,44 @@
+#reservation-index {
+  padding: 30px 0;
+
+  .reservation-title{
+    text-align: center;
+  }
+
+  .reservation-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .reservation-card {
+      width: 280px;
+      margin-top: 20px;
+      margin-right: 20px;
+      border: 1px #979797 solid;
+    }
+
+    .reservation-info {
+      padding: 5px 20px;
+      line-height: 25px;
+      background-color: white;
+    }
+    
+    .reservation-situation {
+      color: #E76F7B;
+      line-height: 20px;
+    }
+
+    .btn-group {
+      width: 100%;
+      background-color: #5FC2CC;
+
+      .reservation-btn {
+        width: 50%;
+        border: 1px #979797 solid;
+        padding: 2px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: white;
+      }
+    }
+  }
+}

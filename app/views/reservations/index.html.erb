@@ -1,0 +1,25 @@
+<div id="reservation-index" class="container">
+  <div class="reservation-title">
+    <h2>與學校面對面</h2>
+  </div>
+  <div class="reservation-group">
+    <% @reservations.each do |reservation| %>
+    <div class="reservation-card">
+      <div class="reservation-info">
+        <ul class="list-unstyled">
+          <li><%= reservation.subject %></li>
+          <li><%= reservation.location %></li>
+          <li><%= reservation.datetime %></li>
+        </ul>
+        <div class="reservation-situation">
+          目前預約人數： 2 位
+        </div>
+      </div>
+      <div class="btn-group clearfix">
+        <%= link_to '學校資訊', schools_path, class: ['reservation-btn pull-left'] %>
+        <%= link_to '+1我要預約', reservations_path, class: ['reservation-btn pull-right'] %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
