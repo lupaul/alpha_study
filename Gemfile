@@ -42,6 +42,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'mini_magick'
 gem "fog",require: "fog/aws"
+gem "omniauth-google-oauth2"
 
 group :production do
   gem 'mysql2'

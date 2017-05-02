@@ -252,6 +252,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, ENV['facebook_app_id'], ENV["facebook_secret"], :scope => 'public_profile,email', :info_fields => 'email,name', callback_url: "http://justudy.tw/users/auth/facebook/callback"
+  config.omniauth :google_oauth2, ENV['google_oauth2_app_id'], ENV["google_oauth2_secret"], {access_type: "offline",prompt: "select_account consent"}
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
