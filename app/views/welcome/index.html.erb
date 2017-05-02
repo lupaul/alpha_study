@@ -1,2 +1,129 @@
-<h1>  Welcome to Alpha Study</h1>
-<%= link_to("加入Justudy就醬遊",new_enrollment_path) %>
+<section id="categories">
+  <div class="title">
+    <h2>術業專攻，我的達人養成計畫</h2>
+  </div>
+  <div class="container">
+    <div class="category-group">
+      <% @categories.each_with_index do |category, index|%>
+      <div class="category-card">
+        <div class="category-title"><%= category.title %></div>
+        <div class="category-description"><%= category.description %></div>
+        <%= link_to 'more+', category_path(category), class: ['category-btn'] %>
+        <%= image_tag 'english.png' if index == 0 %>
+        <%= image_tag 'cooking.png' if index == 1 %>
+        <%= image_tag 'fashion.png' if index == 2 %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<section id="orientation">
+  <div class="container">
+    <div class="title-group clearfix">
+      <%= image_tag 'filename', class: ['pull-left'] %>
+      <div class="text-center">
+        <h1>留學說明會</h1>
+        <h3>快速掌握學習情報</h3>
+      </div>
+    </div>
+    <div class="instances">
+      <% @activities.each do |activity|%>
+      <div class="instance-card">
+        <%= image_tag 'filename' %>
+        <div class="row instance-info">
+          <div class="col-md-6"><%= activity.subject %></div>
+          <div class="col-md-6"><%= activity.datetime %></div>
+          <div class="col-md-6"><%= activity.location %></div>
+          <div class="col-md-6"><%= activity.organizer %></div>
+          <div class="col-md-6"><%= link_to '喜歡', root_path, class: ['card-btn'] %></div>
+          <div class="col-md-6"><%= link_to '看更多訊息...', activity_path(activity), class: ['card-btn'] %></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'more+', activities_path,  class: ['more-btn'] %>
+</section>
+<section id="sharing">
+  <div class="container">
+    <div class="title-group clearfix">
+      <%= image_tag 'filename', class: ['pull-left'] %>
+      <div class="text-center">
+        <h1>達人分享會</h1>
+        <h3>感受學習旅程，改善資訊落差</h3>
+      </div>
+    </div>
+    <div class="instances">
+      <% @experts.each do |expert|%>
+      <div class="instance-card">
+        <%= image_tag 'filename' %>
+        <div class="row instance-info">
+          <div class="col-md-12"><%= expert.subject %></div>
+          <div class="col-md-12"><%= expert.name %></div>
+          <div class="col-md-6"><%= link_to '喜歡', root_path, class: ['card-btn'] %></div>
+          <div class="col-md-6"><%= link_to '看更多訊息...', expert_path(expert), class: ['card-btn'] %></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <%= link_to 'more+', experts_path,  class: ['more-btn']%>
+  </div>
+</section>
+<section id="facing">
+  <div class="container">
+    <div class="title-group clearfix ">
+      <%= image_tag 'filename', class: ['pull-left'] %>
+      <div class="text-center">
+        <h1>學校面對面</h1>
+        <h3>精準掌握學校第一手訊息</h3>
+      </div>
+    </div>
+    <div class="instances">
+      <% @reservations.each do |reservation|%>
+      <div class="instance-card">
+        <%= image_tag reservation.card_image_url.to_s %>
+        <div class="row instance-info">
+          <div class="col-md-6"><%= reservation.subject %></div>
+          <div class="col-md-6"><%= reservation.datetime %></div>
+          <div class="col-md-12"><%= reservation.location %></div>
+          <div class="col-md-6"><%= link_to '喜歡', class: ['card-btn'] %></div>
+          <div class="col-md-6"><%= link_to '+1 我要預約', reservation_path(reservation), class: ['card-btn'] %></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <%= link_to 'more+', reservations_path, class: ['more-btn'] %>
+  </div>
+</section>
+<section id="schools">
+  <div class="title">
+    <h2>Justudy 學校夥伴</h2>
+  </div>
+  <div class="container">
+    <div class="school-group">
+      <% @schools.each do |school| %>
+      <div class="school-card">
+        <%= image_tag school.image_url.to_s %>
+        <div class="school-info">
+          <div><%= school.name %></div>
+          <div><%= school.continent %></div>
+          <div><%= school.address %></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'more+', schools_path, class:['more-btn'] %>
+</section>
+<section id="contact">
+  <div class="news-letter">
+    <div class="container">
+      <span>掌握掌握海外學習第一手消息 就從<span class="big">訂閱Justudy電子報</span>開始!</span>
+      <label for="email">Email:</label>
+      <input id="email" type="text"/>
+    </div>
+  </div>
+  <div class="fans-page">
+    <div class="container">Justudy 就醬遊粉絲專頁：</div>
+  </div>
+</section>

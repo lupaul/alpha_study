@@ -16,7 +16,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
  #consultation span{
    margin: 10px;
  }
+
+h1 { 
+  font-size: 25px;
+  letter-spacing: 4px;
+}
+
+h2 { 
+  font-size: 20px; 
+  letter-spacing: 3px;
+}
+
+h3 { 
+  font-size: 18px; 
+  letter-spacing: 2px;
+}

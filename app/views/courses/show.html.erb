@@ -1,0 +1,35 @@
+<div id="course-show" class="container">
+  <%= image_tag @course.banner_image_url.to_s %>
+  <div class="course-title">
+    <h2><%= @course.title %></h2>
+  </div>
+  <hr>
+  <div class="course-info">
+    <ul class="list-unstyled">
+      <li>學校：<%= @course.school.name %></li>
+      <li>地址：<%= @course.school.address %></li>
+    </ul>
+    <ul class="list-inline">
+      <li><a href="#description">課程介紹</a></li>
+      <li><a href="#experts">達人分享</a></li>
+      <li><a href="#note">注意事項</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div id="description">
+    <div class="subtitle"><h3>課程介紹</h3></div>
+    <%= @course.description %>
+  </div>
+  <div id="experts">
+    <div class="subtitle"><h3>達人分享</h3></div>
+    <ul class="list-inline">
+      <% @course.experts.each do |expert| %>
+        <li><%= expert.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="note">
+    <div class="subtitle"><h3>注意事項</h3></div>
+    注意事項是什麼？？？  
+  </div>
+</div>

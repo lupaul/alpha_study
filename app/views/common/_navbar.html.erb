@@ -1,31 +1,12 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Alpha Study</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <% if !current_user %>
-                <li> <%= link_to("註冊", new_user_registration_path) %></li>
-                <li> <%= link_to("登入", new_user_session_path) %></li>
-              <% else %>
-                <li class="dropdown">
-                  <a href= "#", class="dropdown-toggle "  data-toggle="dropdown">
-                    Hi!!!, <%= current_user.name %>
-                    <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu" >
-                    <li><%= link_to("Admin使用者學校設定", crm_users_path) %></li>
-                    <li><%= link_to("個人設定", edit_user_registration_path) %></li>
-                    <li><%= link_to("登出", destroy_user_session_path, method: :delete) %></li>
-                  </ul>
-                </li>
-              <% end %>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
+<nav>
+  <div class="container">
+    <ul class="list-inline">
+      <li><%= link_to '證照達人養成', category_path(id: 1) %></li>
+      <li><%= link_to '留學說明會', activities_path %></li>
+      <li><%= link_to '學校面對面', reservations_path %></li>
+      <li><%= link_to '達人分享', experts_path %></li>
+      <li><%= link_to '學校夥伴', schools_path %></li>
+      <li><%= link_to '部落格', root_path %></li>
+    </ul>
+  </div>
 </nav>

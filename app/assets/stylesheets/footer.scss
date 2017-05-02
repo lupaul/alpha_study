@@ -1,0 +1,31 @@
+$branding-color: #5CBEA0;
+$font-color: #5D5D5D;
+
+footer {
+  padding: 20px 30px 20px 30px;
+  background-color: #4D84E8;
+  color: #ffffff;
+  font-size: 15px;
+
+  .container {
+    position: relative;
+
+    .contact-nav > li {
+      margin-right: 35px;
+    }
+
+    a {
+      line-height: 35px;
+      color: #ffffff;
+    }
+    .logo-img {
+      width: 155px;
+    }
+
+    #right-reserved {
+      position: absolute;
+      bottom: 5px;
+      color: #000000;
+    }
+  }
+}

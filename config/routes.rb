@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  scope path:'', module: 'factory', constraints: -> (req) { req.host == 'factory.justudy.tw' } do
+  scope path:'', module: 'factory', as: 'factory', constraints: -> (req) { req.host == 'factory.justudy.tw' } do
     resources :schools, :licenses, :courses, :activities, :experts, :reservations
     root 'factories#index'
   end
 
-  scope path:'v1', module: 'api/v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
+  scope path:'v1', module: 'api/v1', as: 'v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
     post "login" => "auth#login"
     post "logout" => "auth#logout"
     resources :schools, :licenses, :courses, :activities, :experts, :reservations, except: [:new, :edit]
@@ -42,9 +42,25 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reservations
-
   resources :consultations
+
+  resources :account, only: :show do
+    member do
+      get :profile
+      get :check_calender
+      get :check_liked
+    end
+  end
+
+  resources :activities, only: [:index, :show] do
+    member do
+      get :participate
+      get :cancel
+    end 
+  end
+
+  resources :categories,:courses, :licenses, only: :show
+  resources :experts, :reservations, :schools, only: [:index, :show]
 
   root 'welcome#index'
 end

@@ -1,0 +1,12 @@
+<div id="account-profile" class="container">
+  <div class="profile-info">
+    <div class="profile-title">會員基本資料</div>
+    <div class="profile-content">
+      <ul class="list-unstyled">
+        <li>姓名：<%= current_user.name %></li>
+        <li>Email：<%= current_user.email %></li>
+        <li><%= link_to '更改帳戶', edit_user_registration_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

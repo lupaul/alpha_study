@@ -1,4 +1,5 @@
 class Factory::FactoriesController < ApplicationController
+  layout 'factory'
   def index
     @schools      = School.all.limit(5)
     @courses      = Course.all.limit(5)

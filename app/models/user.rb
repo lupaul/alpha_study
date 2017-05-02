@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_one :school, dependent: :destroy
   has_one :photo
   accepts_nested_attributes_for :photo
-  has_many :activities
   has_many :participations
   has_many :activityships, through: :participations, source: :activity
   has_many :liked_topics, through: :likes, source: :topic

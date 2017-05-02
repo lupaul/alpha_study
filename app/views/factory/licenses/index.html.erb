@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="text-center">證照列表</h2>
-  <%= link_to '回首頁', root_path, class: "btn btn-success" %>
-  <%= link_to '加入證照', new_license_path, class: "btn btn-info" %>
+  <%= link_to '回首頁', factory_root_path, class: "btn btn-success" %>
+  <%= link_to '加入證照', new_factory_license_path, class: "btn btn-info" %>
   <table class="table table-hover">
     <thead>
       <th>名稱</th>
@@ -12,10 +12,10 @@
     <tbody>
       <% @licenses.each do |license| %>
       <tr>
-        <td><%= link_to license.title, license_path(license) %></td>
+        <td><%= link_to license.title, factory_license_path(license) %></td>
         <td><%= license.category %></td>
-        <td><%= link_to '修改', edit_license_path(license), class: "btn btn-warning btn-md" %></td>
-        <td><%= link_to '刪除', license_path(license), method: :delete, class: "btn btn-danger btn-md" %></td>
+        <td><%= link_to '修改', edit_factory_license_path(license), class: "btn btn-warning btn-md" %></td>
+        <td><%= link_to '刪除', factory_license_path(license), method: :delete, class: "btn btn-danger btn-md" %></td>
       </tr>
       <% end %>
     </tbody>
