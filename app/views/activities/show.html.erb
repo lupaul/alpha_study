@@ -1,0 +1,36 @@
+<div id="activity-show" class="container">
+  <%= image_tag @activity.banner_image_url.to_s %>
+  <div class="activity-title">
+    <h2>活動主題： <%= @activity.subject %></h2>
+  </div>
+  <hr>
+  <div class="activity-info">
+    <ul class="list-unstyled">
+      <li>活動日期：<%= @activity.datetime %></li>
+      <li>地址：<%= @activity.location %></li>
+      <li>主辦單位：<%= @activity.presenter_name %></li>
+      <li>活動日期：<%= @activity.organizer %></li>
+    </ul>
+    <ul class="list-inline">
+      <li><a href="#description">活動介紹</a></li>
+      <li><a href="#presenter">活動嘉賓</a></li>
+      <li><a href="#note">注意事項</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div id="description">
+    <div class="subtitle"><h3>活動介紹</h3></div>
+    <%= @activity.description %>
+  </div>
+  <hr>
+  <div id="presenter">
+    <div class="subtitle"><h3>活動嘉賓</h3></div>
+    <%= @activity.presenter_name %><br>
+    <%= @activity.presenter_info %>
+  </div>
+  <hr>
+  <div id="note">
+    <div class="subtitle"><h3>注意事項</h3></div>
+    注意事項是什麼？？？
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div id="activity-index" class="container">
+  <div class="activity-title">
+    <h2>留學說明會</h2>
+  </div>
+  <div class="activity-group">
+    <% @activities.each do |activity| %>
+    <div class="activity-card">
+      <%= image_tag activity.card_image_url.to_s %>
+      <div class="activity-info">
+        <ul class="list-unstyled">
+          <li><%= activity.subject %></li>
+          <li><%= activity.datetime %></li>
+          <li><%= activity.presenter_name %></li>
+          <li><%= activity.location %></li>
+        </ul>
+      </div>
+      <div class="btn-group clearfix">
+        <%= link_to '喜歡', activities_path, class: 'activity-btn pull-left' %>
+        <%= link_to '看更多訊息', activity_path(activity), class: 'activity-btn pull-right' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
