@@ -1,0 +1,20 @@
+<div id="check_calender" class="container">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <th>活動名稱</th>
+      <th>活動日期</th>
+      <th>活動地址</th>
+      <th>我的票券</th>
+    </thead>
+    <tbody>
+      <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.subject %></td>
+        <td><%= activity.datetime %></td>
+        <td><%= activity.location %></td>
+        <td><%= link_to '取消報名', cancel_activity_path(activity) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

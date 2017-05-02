@@ -33,9 +33,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :account, only: :show do
+    member do
+      get :profile
+      get :check_calender
+      get :check_liked
+    end
+  end
+
   resources :activities, only: [:index, :show] do
     member do
       get :participate
+      get :cancel
     end 
   end
 

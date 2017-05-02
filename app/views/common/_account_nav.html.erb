@@ -1,0 +1,13 @@
+<div id="account-nav">
+  <h2 class="title">Justudy會員帳戶</h2>
+  <div class="container">
+    <div class="subtitle">
+      Hi <%= current_user.name %> 你好～ 這是你的會員帳戶及相關活動報名：
+    </div>
+    <ul class="list-inline">
+      <li><%= link_to '會員基本資料', profile_account_path %></li>
+      <li><%= link_to '報名查詢', check_calender_account_path %></li>
+      <li><%= link_to '追蹤查詢', check_liked_account_path %></li>
+    </ul>
+  </div>
+</div> 
