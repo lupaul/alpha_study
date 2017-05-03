@@ -10,6 +10,7 @@ class AccountController < ApplicationController
 
   def check_calender
     @activities = current_user.activityships
+    @reservations = current_user.participated_reservation
   end
 
   def check_liked

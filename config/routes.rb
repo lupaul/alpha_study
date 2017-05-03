@@ -44,8 +44,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :consultations
-
   resources :account, only: :show do
     member do
       get :profile
@@ -54,7 +52,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :activities, only: [:index, :show] do
+  resources :activities, :reservations, only: [:index, :show] do
     member do
       get :participate
       get :cancel
@@ -62,7 +60,8 @@ Rails.application.routes.draw do
   end
 
   resources :categories,:courses, :licenses, only: :show
-  resources :experts, :reservations, :schools, only: [:index, :show]
+  resources :experts, :schools, only: [:index, :show]
+  resources :consultations, only: [:new, :create]
 
   root 'welcome#index'
 end

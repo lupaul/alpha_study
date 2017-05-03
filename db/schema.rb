@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20170502063503) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "card_image"
+    t.string   "banner_image"
     t.integer  "count",          default: 0
     t.string   "image"
     t.boolean  "is_online"
     t.string   "software"
-    t.string   "card_image"
-    t.string   "banner_image"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 

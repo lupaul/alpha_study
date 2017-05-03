@@ -1,0 +1,19 @@
+#login {
+  width: 450px;
+  margin: 20px auto;
+  border: 1px black solid;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: #979797;
+
+  .title {
+    padding: 10px 0;
+  }
+  
+  .form-inputs input {
+    width: 80%;
+    margin: 8px auto;
+    border: 1px #6294EE solid;
+  }
+}
