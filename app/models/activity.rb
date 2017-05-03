@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  belongs_to :school, class_name: :user, foreign_key: :user_id, optional: true
+  belongs_to :school, class_name: 'User', foreign_key: 'user_id', optional: true
   has_many :participations
   has_many :students, through: :participations, source: :user
   mount_uploader :card_image, ImageUploader
