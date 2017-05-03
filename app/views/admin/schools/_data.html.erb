@@ -1,0 +1,16 @@
+
+<div class="modal-dialog bs-example-modal-lg charts-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel">
+  <div class="modal-content">
+    <% if @type == "multi" %>
+      <div id="multi1-container" >
+        <%= @multicolumn.render() %>
+      </div>
+    <% else %>
+    <div id="inverse1-container">
+      <%= @inversemsarea.render() %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
