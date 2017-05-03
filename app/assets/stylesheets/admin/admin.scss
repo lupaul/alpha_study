@@ -1,0 +1,47 @@
+#admin {
+  overflow: hidden;
+  height: 100%;
+  .row, .col-md-2, .col-md-10 {
+    padding: 0;
+  } 
+
+  .col-md-10 {
+    overflow-y: scroll; 
+  }
+}
+
+#admin-header {
+  #logo {
+    padding: 10px 0;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 22px;
+    color: #84C6BE;
+  }
+
+  #head {
+    padding: 17px;
+    background-color: #84C6BE;
+
+    .title {
+      font-size: 30px;
+      color: white;
+    }
+
+    .profile {
+      line-height: 25px;
+      font-size: 14px;
+      color: black;
+    }
+  }
+}
+
+#admin-navbar {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 800px;
+  color: white;
+  background-color: #84C6BE;
+}

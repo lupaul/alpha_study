@@ -1,0 +1,23 @@
+<div id="expert-index" class="container">
+  <div class="expert-title">
+    <h2>達人分享會</h2>
+  </div>
+  <div class="expert-group">
+    <% @experts.each do |expert| %>
+    <div class="expert-card">
+      <%= image_tag expert.card_image_url.to_s %>
+      <div class="expert-info">
+        <ul class="list-unstyled">
+          <li><%= expert.subject %></li>
+          <li><%= expert.name %></li>
+          <li><%= expert.course.title %></li>
+        </ul>
+      </div>
+      <div class="btn-group clearfix">
+        <%= link_to '喜歡', activities_path, class: 'expert-btn pull-left' %>
+        <%= link_to '看更多訊息', expert_path(expert), class: 'expert-btn pull-right' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
