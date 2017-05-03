@@ -1,4 +1,5 @@
 <div id="check_calender" class="container">
+  <h3>活動報名紀錄</h3>
   <table class="table table-bordered table-hover">
     <thead>
       <th>活動名稱</th>
@@ -13,6 +14,26 @@
         <td><%= activity.datetime %></td>
         <td><%= activity.location %></td>
         <td><%= link_to '取消報名', cancel_activity_path(activity) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <h3>學校面對面紀錄</h3>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <th>主題</th>
+      <th>學校名稱</th>
+      <th>預約日期</th>
+      <th>活動狀態</th>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.subject %></td>
+        <td><%= reservation.school.name %></td>
+        <td><%= reservation.datetime %></td>
+        <td><%= link_to '取消預約', cancel_reservation_path(reservation) %></td>
       </tr>
       <% end %>
     </tbody>
