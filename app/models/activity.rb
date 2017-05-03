@@ -5,5 +5,5 @@ class Activity < ApplicationRecord
   mount_uploader :card_image, ImageUploader
   mount_uploader :banner_image, ImageUploader
   has_many :members, through: :participations, source: :user
-  
+  has_many :likes, as: :likeable
 end
