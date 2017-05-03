@@ -1,0 +1,26 @@
+<div id="expert-show" class="container">
+  <%= image_tag @expert.banner_image_url.to_s %>
+  <div class="expert-title">
+    <h2><%= @expert.subject %></h2>
+  </div>
+  <hr>
+  <div class="expert-info">
+    <ul class="list-unstyled">
+      <li>主講人：<%= @expert.name %></li>
+      <li>課程：<%= @expert.course.title %></li>
+    </ul>
+    <ul class="list-inline">
+      <li><a href="#content">分享內容</a></li>
+      <li><a href="#description">達人介紹</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div id="content">
+    <div class="subtitle"><h3>分享內容</h3></div>
+    <%= @expert.article %>
+  </div>
+  <div id="description">
+    <div class="subtitle"><h3>達人介紹</h3></div>
+
+  </div>
+</div>
