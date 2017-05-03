@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :schools do
       get :consultations, on: :member
       get :account_activity, on: :collection
+      get :report, on: :collection
+      get :check, on: :collection
       resources :activities
       resources :reservations do
         collection do

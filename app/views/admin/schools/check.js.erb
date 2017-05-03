@@ -1,0 +1,4 @@
+<!-- 將 _new.html.erb 的 資料塞入 我們先前就建立好的 #product-modal -->
+$("#charts-modal").html("<%= escape_javascript(render 'data') %>");
+<!-- 讓#product-modal 呈現出來 -->
+$("#charts-modal").modal("show");
