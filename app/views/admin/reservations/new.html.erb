@@ -1,5 +1,6 @@
 <%= simple_form_for @reservation , url: admin_school_reservations_path do |f| %>
   <%= f.input :subject , label: "課程" ,input_html:{class: "form-control"}%>
+  <%= f.input :location, label: "地點" %>
   <%= f.input :datetime, label: "選擇日期" %>
   <%= f.button :submit, "建立預約活動" ,input_html:{class: "form-control"}%>
 <% end %>

@@ -143,7 +143,7 @@
       <% @reservations.each do |reservation| %>
       <tr>
         <td><%= link_to reservation.subject, factory_reservation_path(reservation) %></td>
-        <td><%= reservation.locaiton %></td>
+        <td><%= reservation.location %></td>
         <td><%= reservation.datetime %></td>
         <td><%= link_to '修改', edit_factory_reservation_path(reservation), class: "btn btn-warning btn-md" %></td>
         <td><%= link_to '刪除', factory_reservation_path(reservation), method: :delete, class: "btn btn-danger btn-md" %></td>
