@@ -1,5 +1,6 @@
 class Admin::SchoolsController < ApplicationController
   layout "admin"
+  before_action :authenticate_user!
 
   def index
     #code

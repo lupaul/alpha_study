@@ -35,7 +35,7 @@
           <div class="col-md-6"><%= activity.datetime %></div>
           <div class="col-md-6"><%= activity.location %></div>
           <div class="col-md-6"><%= activity.organizer %></div>
-          <% if current_user.likes.where(likeable_type: "Activity", likeable_id: activity).present? %>
+          <% if current_user && current_user.likes.where(likeable_type: "Activity", likeable_id: activity).present? %>
             <div class="col-md-6"><%= link_to '不喜歡', del_activity_likes_path(activity),
             method: :post, class: ['card-btn'] %></div>
           <% else %>
@@ -92,7 +92,7 @@
           <div class="col-md-6"><%= reservation.subject %></div>
           <div class="col-md-6"><%= reservation.datetime %></div>
           <div class="col-md-12"><%= reservation.location %></div>
-          <% if current_user.likes.where(likeable_type: "Reservation", likeable_id: reservation).present? %>
+          <% if current_user && current_user.likes.where(likeable_type: "Reservation", likeable_id: reservation).present? %>
             <div class="col-md-6"><%= link_to '不喜歡', del_reservation_likes_path(reservation),
             method: :post, class: ['card-btn'] %></div>
           <% else %>
