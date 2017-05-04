@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :appointments
   has_many :participated_reservation, through: :appointments, source: :reservation
   has_many :consultations
+  has_many :likes
 
   def is_member_of?(reservation)
     participated_reservation.include?(reservation)

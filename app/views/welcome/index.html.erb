@@ -37,6 +37,18 @@
           <div class="col-md-6"><%= image_tag 'organizer.png', class: 'instance-icon' %><%= activity.organizer %></div>
           <div class="col-md-6"><%= link_to '喜歡', root_path, class: 'card-btn' %></div>
           <div class="col-md-6"><%= link_to '看更多訊息...', activity_path(activity), class: 'card-btn' %></div>
+          <div class="col-md-6"><%= activity.subject %></div>
+          <div class="col-md-6"><%= activity.datetime %></div>
+          <div class="col-md-6"><%= activity.location %></div>
+          <div class="col-md-6"><%= activity.organizer %></div>
+          <% if current_user && current_user.likes.where(likeable_type: "Activity", likeable_id: activity).present? %>
+            <div class="col-md-6"><%= link_to '不喜歡', del_activity_likes_path(activity),
+            method: :post, class: ['card-btn'] %></div>
+          <% else %>
+            <div class="col-md-6"><%= link_to '喜歡', join_activity_likes_path(activity),
+            method: :post, class: ['card-btn'] %></div>
+          <% end %>
+          <div class="col-md-6"><%= link_to '看更多訊息...', activity_path(activity), class: ['card-btn'] %></div>
         </div>
       </div>
       <% end %>
@@ -88,6 +100,17 @@
           <div class="col-md-12"><%= image_tag 'calendar.png', class: 'instance-icon' %><%= reservation.datetime %></div>
           <div class="col-md-6"><%= link_to '喜歡', root_path, class: 'card-btn' %></div>
           <div class="col-md-6"><%= link_to '+1 我要預約', reservation_path(reservation), class: 'card-btn' %></div>
+          <div class="col-md-6"><%= reservation.subject %></div>
+          <div class="col-md-6"><%= reservation.datetime %></div>
+          <div class="col-md-12"><%= reservation.location %></div>
+          <% if current_user && current_user.likes.where(likeable_type: "Reservation", likeable_id: reservation).present? %>
+            <div class="col-md-6"><%= link_to '不喜歡', del_reservation_likes_path(reservation),
+            method: :post, class: ['card-btn'] %></div>
+          <% else %>
+            <div class="col-md-6"><%= link_to '喜歡', join_reservation_likes_path(reservation),
+            method: :post, class: ['card-btn'] %></div>
+          <% end %>
+          <div class="col-md-6"><%= link_to '+1 我要預約', reservation_path(reservation), class: ['card-btn'] %></div>
         </div>
       </div>
       <% end %>

@@ -4,5 +4,6 @@ class School < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :course
   has_many :consultations
+  has_many :likes, as: :likeable
 
 end
