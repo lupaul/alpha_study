@@ -64,7 +64,7 @@ Rails.application.routes.draw do
     end
 
 
-  resources :activities, only: [:index, :show] ,concerns: :likeable do
+  resources :activities, :reservations, only: [:index, :show] ,concerns: :likeable do
     member do
       get :participate
       get :cancel
@@ -73,8 +73,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: :show
   resources :courses, :licenses, only: :show, concerns: :likeable
-  resources :experts, :reservations, :schools, only: [:index, :show],
-            concerns: :likeable
+  resources :experts, :schools, only: [:index, :show], concerns: :likeable
 
   root 'welcome#index'
 end
