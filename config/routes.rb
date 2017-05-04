@@ -54,15 +54,22 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :activities, only: [:index, :show] do
+  concern :likeable do
+      resources :likes
+    end
+
+
+  resources :activities, only: [:index, :show] ,concerns: :likeable do
     member do
       get :participate
       get :cancel
-    end 
+    end
   end
 
-  resources :categories,:courses, :licenses, only: :show
-  resources :experts, :reservations, :schools, only: [:index, :show]
+  resources :categories, only: :show
+  resources :courses, :licenses, only: :show, concerns: :likeable
+  resources :experts, :reservations, :schools, only: [:index, :show],
+            concerns: :likeable
 
   root 'welcome#index'
 end
