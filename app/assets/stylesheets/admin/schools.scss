@@ -1,3 +1,27 @@
-// Place all the styles related to the admin::schools controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#account-activity {
+  .account-title {
+    margin: 15px 0;
+    padding: 15px 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: #64B0DB
+  }
+
+  .account-group {
+    height: 500px;
+    padding: 100px 0;
+    text-align: center;
+
+    .account-btn {
+      display: inline-block;
+      width: 200px;
+      margin: 20px;
+      border: 1px black solid;
+      border-radius: 5px;
+      padding: 30px 15px;
+      font-size: 20px;
+      background-color: #D8D8D8
+    }
+  }
+}

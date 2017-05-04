@@ -3,7 +3,7 @@ class Admin::SchoolsController < ApplicationController
   
 
   def index
-    #code
+    redirect_to action: :report
   end
 
   def account_activity
