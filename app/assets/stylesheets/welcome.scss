@@ -86,9 +86,13 @@ $category-3: #AC2960;
 }
 
 .title-group {
-  width: 360px;
+  width: 500px;
   margin: 0 auto;
   padding: 20px;
+
+  .title-icon {
+    width: 110px;
+  }
 }
 
 .instances {
@@ -109,6 +113,12 @@ $category-3: #AC2960;
     .instance-info {
       padding: 10px 25px;
       line-height: 45px;
+    }
+
+    .instance-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
     }
 
     .card-btn {
@@ -170,6 +180,12 @@ $category-3: #AC2960;
       padding: 15px 25px;
       line-height: 40px;
       background-color: #FDFDFD
+    }
+
+    .instance-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
     }
   }
 }

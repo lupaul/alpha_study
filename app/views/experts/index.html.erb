@@ -8,9 +8,9 @@
       <%= image_tag expert.card_image_url.to_s %>
       <div class="expert-info">
         <ul class="list-unstyled">
-          <li><%= expert.subject %></li>
-          <li><%= expert.name %></li>
-          <li><%= expert.course.title %></li>
+          <li><%= image_tag 'subject.png', class: 'instance-icon' %><%= expert.subject %></li>
+          <li><%= image_tag 'expert.png', class: 'instance-icon' %><%= expert.name %></li>
+          <li><%= image_tag 'course.png', class: 'instance-icon' %><%= expert.course.title %></li>
         </ul>
       </div>
       <div class="btn-group clearfix">
