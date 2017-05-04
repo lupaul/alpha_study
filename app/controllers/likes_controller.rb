@@ -11,7 +11,6 @@ class LikesController < ApplicationController
   def del
     @like = current_user.likes.where(likeable_type: @resource, likeable_id: @id)
     if Like.find(@like.to_a[0].id).destroy
-      flash[:alert] = "Successfully delete..."
       redirect_to :back
     end
 
