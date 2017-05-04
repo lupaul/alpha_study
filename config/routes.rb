@@ -55,7 +55,12 @@ Rails.application.routes.draw do
   end
 
   concern :likeable do
-      resources :likes
+      resources :likes do
+        collection do
+          post :join
+          post :del
+        end
+      end
     end
 
 
