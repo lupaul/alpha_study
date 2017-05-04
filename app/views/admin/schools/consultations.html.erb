@@ -1,52 +1,43 @@
-<%= link_to("預約清單", admin_school_reservations_path(current_user), class: "btn btn-primary pull-right") %>
-<h2>預約詢問學生清單 Appointment List</h2>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>證照類別</th>
-      <th>學生名稱 Student Name</th>
-      <th>學生E-mail</th>
-      <th>學生希望時間 Available Time</th>
-      <th>學生方便日期 Available Date Period</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @consultations.each do |consultation| %>
-    <tr data-id="<%= consultation.id %>">
-      <td></td>
-      <td>
-        <%= consultation.license.title %>
-      </td>
-      <td>
-        <%= consultation.user.name %>
-      </td>
-      <td>
-        <%= consultation.user.email %>
-      </td>
-      <td>
-        <% consultation.datetime.each do |d|  %>
-          <% if d != '' %>
-            <%= d %> <br>
-          <% end %>
+<div id="admin-consultation">
+  <div class="account-title">帳戶活動 Acount Activity</div>
+  <div class="admin-container">
+    <%= link_to("預約清單", admin_school_reservations_path(current_user), class: "btn btn-primary pull-right") %>
+    <h2>預約詢問學生清單 Appointment List</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>證照類別</th>
+          <th>學生名稱 Student Name</th>
+          <th>學生E-mail</th>
+          <th>學生希望時間 Available Time</th>
+          <th>學生方便日期 Available Date Period</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @consultations.each do |consultation| %>
+        <tr data-id="<%= consultation.id %>">
+          <td><%= consultation.license.title %></td>
+          <td><%= consultation.user.name %></td>
+          <td><%= consultation.user.email %></td>
+          <td>
+            <% consultation.datetime.each do |d|  %>
+              <% if d != '' %>
+                <%= d %> <br>
+              <% end %>
+            <% end %>
+          </td>
+          <td><%= consultation.start_date %> ~ <%= consultation.end_date %></td>
+          <td><%= link_to("建立新預約", new_admin_school_reservation_path(current_user), class: "btn btn-warning") %></td>
+          <td>
+            <%= link_to "加入現有預約活動",
+            checkout_admin_school_reservations_path(current_user,consulid: consultation.id), method: :post, remote: true, class: "btn btn-success" %>
+          </td>
+        </tr>
         <% end %>
-      </td>
-      <td>
-        <%= consultation.start_date %> ~
-        <%= consultation.end_date %>
-      </td>
-      <td>
-        <%= link_to("建立新預約", new_admin_school_reservation_path(current_user), class: "btn btn-warning") %>
-      </td>
-      <td>
-        <%= link_to "加入現有預約活動",
-        checkout_admin_school_reservations_path(current_user,consulid: consultation.id),method: :post, remote: true ,class: "btn btn-success" %>
-
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<div id="product-modal" class="modal fade"></div>
+      </tbody>
+    </table>
+    <div id="product-modal" class="modal fade"></div>
+  </div>
+</div>

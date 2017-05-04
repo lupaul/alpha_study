@@ -1,34 +1,31 @@
-<h2>預約活動清單 Appointment List</h2>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>預約活動名稱</th>
-      <th>預約活動日期</th>
-      <th>學生名單</th>
-      <th>預約人數</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @reservations.each do |reservation| %>
-    <tr>
-      <td></td>
-      <td>
-        <%= reservation.subject %>
-      </td>
-      <td>
-        <%= reservation.datetime %>
-      </td>
-      <td>
-        <% reservation.members.each do | member| %>
-          <%= member.name %>
+<div id="admin-reservation">
+  <div class="account-title">帳戶活動 Acount Activity</div>
+  <div class="admin-container">
+    <h2>預約活動清單 Appointment List</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>預約活動名稱</th>
+          <th>預約活動日期</th>
+          <th>學生名單</th>
+          <th>預約人數</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reservations.each do |reservation| %>
+        <tr>
+          <td><%= reservation.subject %></td>
+          <td><%= reservation.datetime %></td>
+          <td>
+            <% reservation.members.each do | member| %>
+              <%= member.name %>
+            <% end %>
+          </td>
+          <td><%= reservation.count %></td>
+        </tr>
         <% end %>
-      </td>
-      <td>
-        <%= reservation.count %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to("回上一頁", consultations_admin_school_path(current_user), class: "btn btn-primary") %>
+      </tbody>
+    </table>
+    <%= link_to("回上一頁", consultations_admin_school_path(current_user), class: "btn btn-primary") %>
+  </div>
+</div>
