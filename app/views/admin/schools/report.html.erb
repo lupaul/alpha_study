@@ -2,17 +2,17 @@
   <div class="col-sm-6">
     <div id="multi-container" >
       <%= @multicolumn.render() %>
-    </div>
-    <%= link_to "點擊放大",
-    check_admin_schools_path(click: :multi), remote: true ,class: "btn btn-success" %>
+    </div >
+    <%= link_to "詳細資訊",
+    check_admin_schools_path(click: :multi), remote: true ,class: "btn btn-info", id:  "mlitbtn" %>
   </div>
   <div class="row">
     <div class="col-sm-6">
       <div id="inverse-container">
         <%= @inversemsarea.render() %>
       </div>
-      <%= link_to "點擊放大",
-      check_admin_schools_path(click: :inverse), remote: true ,class: "btn btn-success" %>
+      <%= link_to "詳細資訊",
+      check_admin_schools_path(click: :inverse), remote: true ,class: "btn btn-info " %>
     </div>
   </div>
 </div>

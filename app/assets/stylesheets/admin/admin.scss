@@ -3,10 +3,13 @@
   height: 100%;
   .row, .col-md-2, .col-md-10 {
     padding: 0;
-  } 
+  }
 
   .col-md-10 {
-    overflow-y: scroll; 
+    overflow-y: scroll;
+  }
+  #multi-container, #mlitbtn{
+    margin-left:   10px;
   }
 }
 
