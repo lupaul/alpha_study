@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170505080218) do
+=======
+ActiveRecord::Schema.define(version: 20170505080214) do
+>>>>>>> 4fecd46350ccc7dbaf8cb91332a8e1966ba4ead4
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
@@ -20,16 +24,16 @@ ActiveRecord::Schema.define(version: 20170505080218) do
     t.string   "presenter_name"
     t.text     "presenter_info"
     t.string   "organizer"
-    t.integer  "liked",          default: 0
+    t.integer  "liked",                default: 0
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "card_image"
-    t.string   "banner_image"
-    t.integer  "count",          default: 0
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "participations_count", default: 0
     t.string   "image"
     t.boolean  "is_online"
     t.string   "software"
+    t.string   "card_image"
+    t.string   "banner_image"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 

@@ -17,13 +17,35 @@
       <tbody>
         <% @activities.each do |activity| %>
         <tr>
-          <td><%= activity.subject %></td>
+          <td><%= link_to("#{ activity.subject}", "student", data: { toggle: "modal", target:
+            "#myModal-#{activity.id}"}) %></td>
           <td><%= activity.datetime%></td>
           <td><%= activity.location %></td>
-          <td><%= activity.count %></td>
+          <td><%= activity.participations_count %></td>
           <td><%= link_to("修改活動", edit_admin_school_activity_path(current_user, activity), class: "btn btn-info") %></td>
           <td><%= link_to("刪除活動", admin_school_activity_path(current_user, activity), method: :delete, data: {confirm: " Are you sure?"}, class: "btn btn-warning") %></td>
         </tr>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal-<%= activity.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">學生名單</h4>
+              </div>
+              <div class="modal-body">
+                <% activity.students.each do |student| %>
+                 學生姓名：<%= student.name %> <br><br>
+                 E-mail: <%= student.email %> <hr>
+                 <br>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <% end %>
       </tbody>
     </table>
