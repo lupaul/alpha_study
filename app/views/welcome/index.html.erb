@@ -31,14 +31,10 @@
       <div class="instance-card">
         <%= image_tag activity.card_image_url.to_s %>
         <div class="row instance-info">
-          <div class="col-md-6"><%= image_tag 'subject.png', class: 'instance-icon' %><%= activity.subject %></div>
+          <div class="col-md-12"><%= image_tag 'subject.png', class: 'instance-icon' %><%= activity.subject %></div>
+          <div class="col-md-12"><%= image_tag 'location.png', class: 'instance-icon' %><%= activity.location %></div>
           <div class="col-md-6"><%= image_tag 'calendar.png', class: 'instance-icon' %><%= activity.datetime %></div>
-          <div class="col-md-6"><%= image_tag 'location.png', class: 'instance-icon' %><%= activity.location %></div>
           <div class="col-md-6"><%= image_tag 'organizer.png', class: 'instance-icon' %><%= activity.organizer %></div>
-          <div class="col-md-6"><%= activity.subject %></div>
-          <div class="col-md-6"><%= activity.datetime %></div>
-          <div class="col-md-6"><%= activity.location %></div>
-          <div class="col-md-6"><%= activity.organizer %></div>
           <% if current_user && current_user.likes.where(likeable_type: "Activity", likeable_id: activity).present? %>
             <div class="col-md-6"><%= link_to '不喜歡', del_activity_likes_path(activity),
             method: :post, class: ['card-btn'] %></div>
@@ -96,9 +92,6 @@
           <div class="col-md-6"><%= image_tag 'subject.png', class: 'instance-icon' %><%= reservation.subject %></div>
           <div class="col-md-6"><%= image_tag 'location.png', class: 'instance-icon' %><%= reservation.location %></div>
           <div class="col-md-12"><%= image_tag 'calendar.png', class: 'instance-icon' %><%= reservation.datetime %></div>
-          <div class="col-md-6"><%= reservation.subject %></div>
-          <div class="col-md-6"><%= reservation.datetime %></div>
-          <div class="col-md-12"><%= reservation.location %></div>
           <% if current_user && current_user.likes.where(likeable_type: "Reservation", likeable_id: reservation).present? %>
             <div class="col-md-6"><%= link_to '不喜歡', del_reservation_likes_path(reservation),
             method: :post, class: ['card-btn'] %></div>
