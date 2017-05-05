@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   scope path:'v1', module: 'api/v1', as: 'v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
     post "login" => "auth#login"
     post "logout" => "auth#logout"
-    resources :schools, :licenses, :courses, :activities, :experts, :reservations, except: [:new, :edit]
+    resources :activities, :reservations, except: [:new, :edit] do
+      member do
+        post :participate
+        post :cancel
+      end
+    end
+    resources :schools, :licenses, :courses, :experts, except: [:new, :edit]
     get 'spec', to: redirect('api_spec.html')
   end
 

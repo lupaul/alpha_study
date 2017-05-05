@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :authenticate_user!, only: :participate
+  before_action :authenticate_user!, only: [:participate, :cancel]
 
   def index
     @activities = Activity.all
