@@ -54,6 +54,6 @@ class Admin::ActivitiesController < ApplicationController
   def activity_params
     params.require(:activity).permit(:subject, :datetime, :presenter_name,
                                      :description, :presenter_info, :organizer,
-                                     :image, :location, :software, :is_online )
+                                     :card_image, :banner_image, :location, :software, :is_online )
   end
 end
