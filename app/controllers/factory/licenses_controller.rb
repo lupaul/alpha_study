@@ -33,7 +33,7 @@ class Factory::LicensesController < ApplicationController
   private
 
     def license_params
-      params.require(:license).permit(:title, :description, :category)
+      params.require(:license).permit(:title, :description, :category_id)
     end
 
     def license_find
