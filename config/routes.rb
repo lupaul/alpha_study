@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   scope path:'v1', module: 'api/v1', as: 'v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
     post "login" => "auth#login"
     post "logout" => "auth#logout"
+    get 'english', to: 'ios#english'
+    get 'fashion', to: 'ios#fashion'
+    get 'cook', to: 'ios#cook'
     resources :activities, :reservations, except: [:new, :edit] do
       member do
         post :participate
