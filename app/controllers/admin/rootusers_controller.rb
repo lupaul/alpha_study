@@ -1,4 +1,6 @@
 class Admin::RootusersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @photo = Photo.new()
     @photos = Photo.all

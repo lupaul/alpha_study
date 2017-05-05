@@ -1,5 +1,6 @@
 class Admin::ReservationsController < ApplicationController
   layout "admin"
+  before_action :authenticate_user!
 
   def index
     @reservations = current_user.reservations
