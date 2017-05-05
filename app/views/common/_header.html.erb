@@ -19,11 +19,13 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" >
-                <li><%= link_to("Admin使用者學校設定", crm_users_path) %></li>
                 <li><%= link_to("基本資料", profile_account_path(current_user)) %></li>
                 <li><%= link_to("報名查詢", check_calender_account_path(current_user)) %></li>
                 <li><%= link_to("追蹤查詢", check_liked_account_path(current_user)) %></li>
                 <li><%= link_to("帳戶設定", edit_user_registration_path) %></li>
+                <% if current_user.role == "admin" %>
+                <li><%= link_to("學校後台管理", admin_schools_path) %></li>
+                <% end %>
               </ul>
             </li>
             <li><%= link_to("登出", destroy_user_session_path, method: :delete) %></li>
