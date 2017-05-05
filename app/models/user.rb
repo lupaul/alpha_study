@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
 
   before_create :generate_authentication_token
-
+  has_one :page
   has_one :school, dependent: :destroy
   has_one :photo
   accepts_nested_attributes_for :photo

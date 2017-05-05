@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503080414) do
+ActiveRecord::Schema.define(version: 20170505080218) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "subject"
@@ -120,6 +120,21 @@ ActiveRecord::Schema.define(version: 20170503080414) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "slogan"
+    t.string   "main_image"
+    t.text     "first_description"
+    t.text     "second_description"
+    t.text     "third_description"
+    t.string   "first_image"
+    t.string   "second_image"
+    t.string   "third_image"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["user_id"], name: "index_pages_on_user_id"
   end
 
   create_table "participations", force: :cascade do |t|

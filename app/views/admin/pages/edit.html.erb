@@ -1,0 +1,39 @@
+ <div class="admin-container">
+  <%= form_for @page, url: admin_school_page_url do |f| %>
+    <div class="form-group">
+      <%= f.label :slogan, '首頁敘述' %>
+      <%= f.text_field :slogan, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :main_image, '首頁背景圖片' %> 
+      <%= f.file_field :main_image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :first_image, '課程一圖片' %> 
+      <%= f.file_field :first_image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :first_description, '特色課程一' %>
+      <%= f.text_area :first_description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :second_image, '課程二圖片' %> 
+      <%= f.file_field :second_image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :second_description, '特色課程二' %>
+      <%= f.text_area :second_description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :third_image, '課程三圖片' %> 
+      <%= f.file_field :third_image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :third_description, '特色課程三' %>
+      <%= f.text_area :third_description, class: "form-control" %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.submit '送出', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,33 @@
+<% unless current_user.page %>
+  <%= link_to '新增 NEW', new_admin_school_page_path(current_user.school) %>
+<% else %>
+  <%= link_to '預覽 PREVIEW', admin_school_page_path(current_user.school, current_user.page) %>
+  <%= link_to '編輯 EDIT', edit_admin_school_page_path(current_user.school, current_user.page) %>
+  <div class="admin-container">
+    <section class="main">
+      <%= image_tag '@page.main_page_url.to_s' %>
+      <h1><%= @page.school.school.name %></h1>
+      <h2><%= @page.slogan %></h2>
+    </section>
+    <section class="feature">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag '@page.first_image_url.to_s' %>
+          <p><%= @page.first_description %></p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag '@page.second_image_url.to_s' %>
+          <p><%= @page.second_description %></p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag '@page.third_image_url.to_s' %>
+          <p><%= @page.third_description %></p>
+        </div>
+      </div>
+    </section>
+    <section class="action">
+      <%= @page.school.activities.first.subject %>
+      <%= @page.school.reservations.first.subject %>
+    </section>
+  </div>
+<% end %>
