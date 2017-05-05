@@ -1,5 +1,6 @@
 <div class="form-group">
-  <%= f.input :image, label: " 上傳圖片" ,as: :file %>
+  <%= f.input :card_image, label: " 上傳卡片圖片(350x250)", as: :file %>
+  <%= f.input :banner_image, label: " 上傳橫幅圖片(1000x400)", as: :file %>
   <%= f.input  :subject, label: "活動主題" ,input_html:{class: "form-control"} %>
   <%= f.input :datetime, label: "活動時間", input_html: {class: "form-control"} %>
   <%= f.input :presenter_name, label: "主講者", input_html: { class: "form-control"} %>
