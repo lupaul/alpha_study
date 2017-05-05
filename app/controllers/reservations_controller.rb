@@ -8,9 +8,9 @@ class ReservationsController < ApplicationController
   def participate
     reservation = Reservation.find(params[:id])
     if Appointment.create!(user: current_user, reservation: reservation)
-      redirect_to action: :index, notice: '預約成功'
+      redirect_to :back, notice: '預約成功'
     else
-      redirect_to action: :index, notice: '預約失敗'
+      redirect_to :back, notice: '預約失敗'
     end
   end
 
