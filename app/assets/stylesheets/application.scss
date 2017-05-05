@@ -34,3 +34,12 @@ h3 {
   font-size: 22px; 
   letter-spacing: 2px;
 }
+
+.flash-fix {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 50%;
+  z-index: 5;
+}
