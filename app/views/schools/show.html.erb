@@ -1,0 +1,48 @@
+<div class="container">
+  <section class="main" style="background: url(<%= @page.main_image_url.to_s %>)">
+    <h1 class="title"><%= @page.school.school.name %></h1>
+    <h2 class="slogan"><%= @page.slogan %></h2>
+  </section>
+  <section class="feature">
+    <div class="subtitle">
+      <h3>特色課程</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @page.first_image_url.to_s %>
+        <p><%= @page.first_description %></p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag @page.second_image_url.to_s %>
+        <p><%= @page.second_description %></p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag @page.third_image_url.to_s %>
+        <p><%= @page.third_description %></p>
+      </div>
+    </div>
+  </section>
+  <section class="action">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>留學說明會</h3>
+        <hr>
+        <ul class="list-group">
+          <% @page.school.activities.limit(5).each do |activity| %>
+          <li class="list-group-item"><%= link_to activity.subject, activity_path(activity) %></li>
+          <% end %>
+          <li class="list-group-item"><%= link_to 'more+', activities_path %></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3>與學校面對面</h3>
+        <hr>
+        <ul class="list-group">
+          <% @page.school.reservations.limit(5).each do |reservation| %>
+          <li class="list-group-item"><%= link_to reservation.subject, reservations_path %></li>
+          <% end %>
+          <li class="list-group-item"><%= link_to 'more+', reservations_path %></li>
+      </div>
+    </div>
+  </section>
+</div>
