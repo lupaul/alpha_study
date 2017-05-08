@@ -14,6 +14,9 @@ class AccountController < ApplicationController
   end
 
   def check_liked
+    @activities = current_user.likes.where(likeable_type: "Activity")
+    @reservations = current_user.likes.where(likeable_type: "Reservation")
+    @experts = current_user.likes.where(likeable_type: "Expert")
   end
 
 end
