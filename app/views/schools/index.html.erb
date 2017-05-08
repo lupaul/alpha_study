@@ -10,7 +10,7 @@
         <ul class="list-unstyled">
           <li><%= image_tag 'school.png', class: 'instance-icon' %><%= school.name %></li>
           <li><%= image_tag 'location.png', class: 'instance-icon' %><%= school.continent %></li>
-          <li><%= image_tag 'thumb.png', class: 'instance-icon' %><%= school.address %></li>
+          <li><%= image_tag 'thumb.png', class: 'instance-icon' %><%= school.likes.count %></li>
         </ul>
       </div>
       <%= link_to 'more+', school_path(school), class: ['school-btn']%>

@@ -119,7 +119,7 @@
         <div class="school-info">
           <div><%= image_tag 'school.png', class: 'instance-icon' %><%= school.name %></div>
           <div><%= image_tag 'location.png', class: 'instance-icon' %><%= school.continent %></div>
-          <div><%= image_tag 'thumb.png', class: 'instance-icon' %><%= school.address %></div>
+          <div><%= image_tag 'thumb.png', class: 'instance-icon' %><%= school.likes.count %></div>
         </div>
       </div>
       <% end %>
