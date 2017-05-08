@@ -6,6 +6,7 @@ class SchoolsController < ApplicationController
 
   def show
     @page = School.find(params[:id]).user.page
+    render layout: 'preview'
   end
   
 end
