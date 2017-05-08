@@ -153,8 +153,8 @@ class Admin::SchoolsController < ApplicationController
     end
 
     @multicolumn = Fusioncharts::Chart.new({
-        :height => 800,
-        :width => 700,
+        :height => 600,
+        :width => 500,
         :type => 'mscolumn2d',
         :renderAt => 'multi1-container',
         :dataSource => {
@@ -194,8 +194,8 @@ class Admin::SchoolsController < ApplicationController
           })
 
     @inversemsarea =  Fusioncharts::Chart.new({
-        :height => 800,
-        :width => 700,
+        :height => 600,
+        :width => 500,
         :type => 'mscombi2d',
         :renderAt => 'inverse1-container',
         :dataSource => {
