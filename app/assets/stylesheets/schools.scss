@@ -6,13 +6,13 @@
   }
 
   .school-group {
-    display: flex;
-    flex-wrap: wrap;
+    column-count: 3;
+    column-gap: 20px;
 
     .school-card {
-      width: 350px;
+      display: inline-block;
+      width: 100%;
       margin-top: 20px;
-      margin-right: 20px;
       border: 1px #979797 solid;
       
       img {
