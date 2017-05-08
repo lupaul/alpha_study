@@ -1,0 +1,59 @@
+<div id="check_calender" class="container">
+  <h3>活動收藏</h3>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <th>活動名稱</th>
+      <th>活動日期</th>
+      <th>活動地址</th>
+      <th>活動狀態</th>
+    </thead>
+    <tbody>
+      <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.likeable.subject %></td>
+        <td><%= activity.likeable.datetime %></td>
+        <td><%= activity.likeable.location %></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <h3>達人收藏</h3>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <th>主題</th>
+      <th>達人</th>
+      <th>分享型式</th>
+    </thead>
+    <tbody>
+      <% @experts.each do |expert| %>
+      <tr>
+        <td><%= expert.likeable.subject %></td>
+        <td><%= expert.likeable.name %></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <h3>學校面對面收藏</h3>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <th>課程</th>
+      <th>學校名稱</th>
+      <th>預約日期</th>
+      <th>活動狀態</th>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.likeable.subject %></td>
+        <td><%= reservation.likeable.school.school.name %></td>
+        <td><%= reservation.likeable.datetime %></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
