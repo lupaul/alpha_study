@@ -7,7 +7,7 @@ class Admin::PagesController < ApplicationController
     @page = current_user.page if current_user.page
   end
 
-  def show  # preview
+  def show #preview
     @page = current_user.page if current_user.page
     render layout: 'preview'
   end
@@ -34,8 +34,8 @@ class Admin::PagesController < ApplicationController
 
   def destroy
     @page = Page.find(params[:id])
-    @page.destroy
-    redirect_to(:show)
+    @page.destroy!
+    redirect_to( action: :index)
   end
 
   private

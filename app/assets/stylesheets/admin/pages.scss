@@ -1,3 +1,88 @@
-// Place all the styles related to the admin::pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.new-page-btn {
+  display: block;
+  width: 200px;
+  margin-top: 120px;
+  margin-left: 360px;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 30px 15px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #D8D8D8
+}
+
+.func-page-btn {
+  display: inline-block;
+  margin: 15px;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 20px;
+  color: white;
+  background-color: #5FC2CC;
+}
+
+.back-page-btn {
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 60px;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 20px;
+  color: white;
+  background-color: #5FC2CC;
+
+
+}
+
+.preview-block {
+  box-shadow: 0 0 10px #6294EE ;
+
+  .main {
+    padding: 235px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    text-align: center;
+    text-transform: uppercase;
+
+    .title {
+      margin-bottom: 100px;
+      font-size: 3.4em;
+      color: white;
+    }
+
+    .slogan {
+      font-size: 2.1em;
+      color: #D8D8D8;
+    }
+  }
+
+  .feature {
+    padding: 30px;
+    text-align: center;
+
+    .subtitle {
+      margin: 60px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      padding: 10px;
+      line-height: 25px;
+      color: #979797;
+      text-align: center;
+    }
+  }
+
+  .action {
+    padding: 30px;
+    text-align: center;
+    background-color: #D8D8D8;
+  }
+}
