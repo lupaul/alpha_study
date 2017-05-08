@@ -81,7 +81,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: :show
+  resources :categories, :licenses, only: :show
   resources :courses, :licenses, only: :show, concerns: :likeable
   resources :experts, :schools, only: [:index, :show], concerns: :likeable
 

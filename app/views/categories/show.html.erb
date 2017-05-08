@@ -21,17 +21,18 @@
   </div>
   <div class="license-description">
     <div class="title">證照介紹</div>
-    <div class="description"><%= @category.licenses.first.description %></div>
+    <div id="license-description" class="description"><%= @category.licenses.first.description %></div>
   </div>
+  <h3>所有課程：</h3>
   <div class="course-group">
     <% @courses.each do |course| %>
     <div class="course-card">
       <%= image_tag course.card_image_url.to_s %>
       <div class="course-info">
         <ul class="list-unstyled">
-          <li><%= course.school.name %></li>
-          <li><%= course.title %></li>
-          <li><%= course.school.continent %></li>
+          <li><%= image_tag 'school.png', class: 'instance-icon' %><%= course.school.name %></li>
+          <li><%= image_tag 'subject.png', class: 'instance-icon' %><%= course.title %></li>
+          <li><%= image_tag 'location.png', class: 'instance-icon' %><%= course.school.continent %></li>
         </ul>
       </div>
       <%= link_to 'more+', course_path(course), class: 'category-btn' %>
