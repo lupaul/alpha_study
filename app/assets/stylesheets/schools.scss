@@ -44,3 +44,51 @@
     }
   }
 }
+
+#school-show {
+  .main {
+    padding: 235px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    text-align: center;
+    text-transform: uppercase;
+
+    .title {
+      margin-bottom: 100px;
+      font-size: 3.4em;
+      color: white;
+    }
+
+    .slogan {
+      font-size: 2.1em;
+      color: #D8D8D8;
+    }
+  }
+
+  .feature {
+    padding: 30px;
+    text-align: center;
+
+    .subtitle {
+      margin: 60px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      padding: 10px;
+      line-height: 25px;
+      color: #979797;
+      text-align: center;
+    }
+  }
+
+  .action {
+    padding: 30px;
+    text-align: center;
+    background-color: #D8D8D8;
+  }
+}
