@@ -11,7 +11,7 @@
       <% @activities.each do |activity| %>
       <tr>
         <td><%= activity.subject %></td>
-        <td><%= activity.datetime %></td>
+        <td><%= activity.datetime.strftime('%Y-%m-%d at %I:%M%p') %></td>
         <td><%= activity.location %></td>
         <td><%= link_to '取消報名', cancel_activity_path(activity) %></td>
       </tr>

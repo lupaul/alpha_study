@@ -11,7 +11,7 @@
       <% @activities.each do |activity| %>
       <tr>
         <td><%= activity.likeable.subject %></td>
-        <td><%= activity.likeable.datetime %></td>
+        <td><%= activity.likeable.datetime.strftime('%Y-%m-%d at %I:%M%p') %></td>
         <td><%= activity.likeable.location %></td>
         <td></td>
       </tr>

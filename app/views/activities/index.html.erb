@@ -9,7 +9,7 @@
       <div class="activity-info">
         <ul class="list-unstyled">
           <li><%= image_tag 'subject.png', class: 'instance-icon' %><%= activity.subject %></li>
-          <li><%= image_tag 'calendar.png', class: 'instance-icon' %><%= activity.datetime %></li>
+          <li><%= image_tag 'calendar.png', class: 'instance-icon' %><%= activity.datetime.strftime('%Y-%m-%d at %I:%M%p') %></li>
           <li><%= image_tag 'expert.png', class: 'instance-icon' %><%= activity.presenter_name %></li>
           <li><%= image_tag 'location.png', class: 'instance-icon' %><%= activity.location %></li>
         </ul>

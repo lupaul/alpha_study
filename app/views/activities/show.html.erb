@@ -6,7 +6,7 @@
   <hr>
   <div class="activity-info">
     <ul class="list-unstyled">
-      <li>活動日期：<%= @activity.datetime %></li>
+      <li>活動日期：<%= @activity.datetime.strftime('%Y-%m-%d at %I:%M%p') %></li>
       <li>地址：<%= @activity.location %></li>
       <li>主講人：<%= @activity.presenter_name %></li>
       <li>主辦單位：<%= @activity.organizer %></li>

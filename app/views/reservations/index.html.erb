@@ -9,7 +9,7 @@
         <ul class="list-unstyled">
           <li><%= image_tag 'subject.png', class: 'instance-icon' %><%= reservation.subject %></li>
           <li><%= image_tag 'location.png', class: 'instance-icon' %><%= reservation.location %></li>
-          <li><%= image_tag 'calendar.png', class: 'instance-icon' %><%= reservation.datetime %></li>
+          <li><%= image_tag 'calendar.png', class: 'instance-icon' %><%= reservation.datetime.strftime('%Y-%m-%d at %I:%M%p') %></li>
         </ul>
         <div class="reservation-situation">
           目前預約人數： 2 位
