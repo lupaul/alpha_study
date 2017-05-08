@@ -26,7 +26,10 @@
     <div class="subtitle"><h3>達人分享</h3></div>
     <ul class="list-inline">
       <% @course.experts.each do |expert| %>
-        <li><%= expert.name %></li>
+        <li>
+          <div class="expert-name">達人名字：<%= expert.name %></div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/#{<%= expert.video_url %>}" frameborder="0" allowfullscreen></iframe>
+        </li>
       <% end %>
     </ul>
   </div>

@@ -31,4 +31,16 @@
     letter-spacing: 5px;
     background-color: white;
   }
+
+  #expert {
+    .expert-name {
+      text-align: center;
+      font-size: 20px;
+    }
+    
+    iframe {
+      display: block;
+      margin: 20px auto;
+    }
+  }
 }
