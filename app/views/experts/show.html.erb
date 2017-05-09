@@ -18,7 +18,7 @@
   <div id="content">
     <div class="subtitle"><h3>分享內容</h3></div>
     <p class="article"><%= @expert.article %></p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/#{<%= @expert.video_url %>}" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @expert.video_url %>" frameborder="0" allowfullscreen></iframe>
   </div>
   <hr>
   <div id="description">
