@@ -1,9 +1,11 @@
+<div id="report">
+<div class="admin-container">
 <div class="row">
   <div class="col-sm-6">
     <div id="multi-container" >
       <%= @multicolumn.render() %>
     </div >
-    <%= link_to "詳細資訊",
+    <%= link_to "Detail Information",
     check_admin_schools_path(click: :multi), remote: true ,class: "btn btn-info", id:  "mlitbtn" %>
   </div>
   <div class="row">
@@ -11,11 +13,12 @@
       <div id="inverse-container">
         <%= @inversemsarea.render() %>
       </div>
-      <%= link_to "詳細資訊",
+      <%= link_to "Detail Information",
       check_admin_schools_path(click: :inverse), remote: true ,class: "btn btn-info " %>
     </div>
   </div>
 </div>
+<br><br>
 <div class="row">
   <div class="col-sm-6">
     <div id="pie-container">
@@ -23,4 +26,5 @@
     </div>
   </div>
 </div>
-<div id="charts-modal" class="modal fade"></div>
+</div>
+</div>

@@ -9,16 +9,11 @@
 </head>
 <body>
   <%= render "common/flashes" %>
-  <div id="admin" class="container">
-    <%= render "common/admin_header" %>
-    <div class="row">
-      <div class="col-md-2">
-        <%= render "common/admin_navbar" %>
-      </div>
-      <div class="col-md-10">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+  <%= render "common/admin_navbar" %>
+  <%= render "common/admin_header" %>
+
+  <div id="charts-modal" class="modal fade"></div>
+  <div id="product-modal" class="modal fade"></div>
+  
 </body>
 </html>

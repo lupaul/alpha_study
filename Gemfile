@@ -44,6 +44,7 @@ gem 'mini_magick'
 gem "fog",require: "fog/aws"
 gem "omniauth-google-oauth2"
 gem "fusioncharts-rails"
+gem "font-awesome-rails"
 
 group :production do
   gem 'mysql2'
