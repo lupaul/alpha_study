@@ -3,7 +3,7 @@ class Admin::SchoolsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    redirect_to action: :report
+    # redirect_to action: :report
   end
 
   def account_activity

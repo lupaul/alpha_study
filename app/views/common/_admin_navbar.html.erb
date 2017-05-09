@@ -1,8 +1,49 @@
-<div id="admin-navbar">
-  <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
-    <li> <%= link_to("Reports", report_admin_schools_path) %> </li>
-    <li> <%= link_to("School Introduction", admin_school_pages_path(current_user.school) ) %></li>
-    <li> <%= link_to("Activity", account_activity_admin_schools_path) %></li>
-    <li> <%= link_to("Logout",destroy_user_session_path,method: :delete ) %></li>
-  </ul>
-</div>
+
+    <div class="sidebar" data-background-color="black" data-active-color="warning">
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    <%= current_user.school.name%>
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <%= link_to(admin_schools_path) do %>
+                        <i class="ti-panel"></i>
+                        <p> DASHBOARD</p>
+                    <% end %>
+                </li>
+                <li >
+                  <%= link_to(report_admin_schools_path) do %>
+                    <i class="ti-search"></i>
+                    <p>DATA REPORT</p>
+                  <% end %>
+                </li>
+                <li>
+                    <%= link_to(admin_school_pages_path(current_user)) do %>
+                    <i class="ti-write"></i>
+                    <p>INTRODUCTION</p>
+                    <% end %>
+                </li>
+                <li>
+                  <%= link_to(account_activity_admin_schools_path) do %>
+                    <i class="ti-location-arrow"></i>
+                    <p>ACTIVITY</p>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to(destroy_user_session_path, method: :delete) do %>
+                  <i class="ti-power-off"></i>
+                  <p>LOGOUT</p>
+                  <% end %>
+                </li>
+            </ul>
+    	</div>
+    </div>
