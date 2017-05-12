@@ -1,4 +1,5 @@
 class ConsultationsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @consultation = Consultation.new
