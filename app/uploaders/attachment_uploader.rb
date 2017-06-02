@@ -16,6 +16,13 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(pdf doc htm html docx)
   end
+  def fog_public
+   false
+ end
+
+ def fog_authenticated_url_expiration
+   5.minutes # in seconds from now,  (default is 10.minutes)
+ end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
