@@ -12,6 +12,7 @@ CarrierWave.configure do |config|
     config.fog_directory  = 'justudy' # bucket name
     config.storage :fog
   else
+
     config.storage :file
   end
 end

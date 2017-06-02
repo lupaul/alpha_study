@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     root 'factories#index'
   end
 
+
   scope path:'v1', module: 'api/v1', as: 'v1', defaults: { format: :json }, constraints: -> (req) { req.host == 'api.justudy.tw' } do
     post "login" => "auth#login"
     post "logout" => "auth#logout"
@@ -85,5 +86,6 @@ Rails.application.routes.draw do
   resources :courses, :licenses, only: :show, concerns: :likeable
   resources :experts, :schools, only: [:index, :show], concerns: :likeable
 
+  resources :resumes, only:[:index, :new, :create, :destroy]
   root 'welcome#index'
 end
