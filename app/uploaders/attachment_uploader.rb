@@ -21,7 +21,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
  end
 
  def fog_authenticated_url_expiration
-   1.minutes # in seconds from now,  (default is 10.minutes)
+   3.minutes # in seconds from now,  (default is 10.minutes)
  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
